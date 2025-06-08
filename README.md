@@ -14,6 +14,7 @@ Vite
 React
 TS
 ESLint
+Git-flow
 
 - ЗАПУСК:
   npm run dev
