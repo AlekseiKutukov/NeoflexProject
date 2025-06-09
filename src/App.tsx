@@ -15,7 +15,7 @@ function App() {
           <main className="content-wrapper">
             <Routes>
               <Route path="/" element={<HomePage />} />
-              {/* NotFound должен быть помледним */}
+              {/* NotFound должен быть поcледним */}
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </main>

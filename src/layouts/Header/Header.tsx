@@ -1,22 +1,23 @@
-import './Header.css';
 import { Link } from 'react-router-dom';
+import NavigationMenu from '../../components/NavigationMenu/NavigationMenu';
 import Button from '../../components/UI/Button/Button';
+import styles from './Header.module.css';
 
 const Header = () => {
+  const clickOnlineBank = () => {
+    console.log('Клац кнопка хидер Online Bank');
+  };
+
   return (
-    <header className="navigation">
-      <nav className="navbar">
-        <Link to="/" className="navbar__logo">
+    <header className={styles.navigation}>
+      <nav className={styles.navbar}>
+        <Link to="/" className={styles.navbar__logo}>
           NeoBank
         </Link>
-        {/* имхо выдернуть это (ul) в отдельный компонент??? */}
-        <ul className="navbar__list">
-          <li className="navbar__item">Credit card</li>
-          <li className="navbar__item">Product</li>
-          <li className="navbar__item">Account</li>
-          <li className="navbar__item">Resource</li>
-        </ul>
-        <Button />
+        <NavigationMenu />
+        <Button onClick={clickOnlineBank} variant="blue">
+          Online Bank
+        </Button>
       </nav>
     </header>
   );

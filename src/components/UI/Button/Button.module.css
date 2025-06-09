@@ -1,0 +1,39 @@
+.button {
+  color: white;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 112%;
+  letter-spacing: 2%;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+  border: none;
+  padding: 16px;
+}
+
+.button--blue {
+  background-color: #003cff;
+}
+
+.button--blue:hover {
+  background-color: #7796c0;
+}
+
+.button--red {
+  background-color: #d93737cc;
+}
+
+.button--red:hover {
+  background-color: #c66060cc;
+}
+
+/* ----- Tablet ----- */
+
+@media (max-width: 920px) {
+  .button {
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 14px;
+  }
+}
