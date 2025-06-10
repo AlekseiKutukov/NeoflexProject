@@ -29,8 +29,63 @@
   }
 }
 
+/* Стили для бургер-меню */
+.burgerMenu {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.burgerLine {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
+}
+
+/* Стили для мобильных устройств */
+
 @media (max-width: 650px) {
+  .burgerMenu {
+    display: block;
+  }
+
   .navbar__list {
-    gap: 20px;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar__listOpen {
+    display: flex;
+  }
+
+  .navbar__item {
+    margin: 5px 0;
+    text-align: center;
+  }
+
+  /* Анимация бургер-иконки */
+  .burgerLineActive1 {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .burgerLineActive2 {
+    opacity: 0;
+  }
+
+  .burgerLineActive3 {
+    transform: translateY(-8px) rotate(-45deg);
   }
 }
