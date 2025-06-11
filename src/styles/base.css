@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@200&family=Jolly+Lodger&family=Montserrat:ital,wght@0,700;1,700&family=Rubik+Doodle+Shadow&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 #root {
   font-family: 'Ubuntu';
   background-color: #fff;
@@ -10,59 +19,55 @@ a {
   color: #000;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 html,
 body,
 #root {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 .app-container {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  margin: 0 auto;
-  max-width: 1300px;
-}
-
-header {
-  grid-row: 1;
-  display: grid;
+  background: #f5f4ff;
 }
 
 .content-wrapper {
-  grid-row: 2;
-  /* padding-bottom: 20px;  */
-}
-
-footer {
-  grid-row: 3;
-  background-color: #eee;
-  color: #333;
-  padding: 1rem;
-  text-align: center;
-  background: #000;
+  flex-grow: 1;
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 @media (max-width: 1330px) {
-  body {
-    padding: 0 15px;
+  header,
+  main {
+    padding: 0 10px;
   }
 }
 
 /* ----- Tablet ----- */
 
 @media (max-width: 920px) {
-  body {
-    padding: 0 15px;
+  header,
+  main {
+    padding: 0 10px;
   }
 }
 
 /* ----- Mobile ----- */
 
 @media (max-width: 500px) {
-  body {
+  header,
+  main {
     padding: 0 10px;
   }
 }

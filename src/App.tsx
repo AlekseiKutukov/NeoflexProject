@@ -9,8 +9,8 @@ function App() {
   return (
     <>
       {/* <BrowserRouter basename="/NeoflexProject">  для githubPages*/}
-      <BrowserRouter>
-        <div className="app-container">
+      <div className="app-container">
+        <BrowserRouter>
           <Header />
           <main className="content-wrapper">
             <Routes>
@@ -20,8 +20,8 @@ function App() {
             </Routes>
           </main>
           <Footer />
-        </div>
-      </BrowserRouter>
+        </BrowserRouter>
+      </div>
     </>
   );
 }
