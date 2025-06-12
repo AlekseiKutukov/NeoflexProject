@@ -6,6 +6,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 98px;
 }
 
 .footer {
@@ -71,6 +72,10 @@ footer {
     padding: 0 10px;
     min-height: 100%;
     row-gap: 40px;
+  }
+
+  footer {
+    margin-top: 20px;
   }
 }
 
