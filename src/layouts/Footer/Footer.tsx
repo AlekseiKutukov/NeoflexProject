@@ -35,7 +35,7 @@ const Footer = () => {
           </div>
         </div>
         <div className={styles.footer__navigation}>
-          <nav className={styles.footer__navbar}>
+          <nav className={styles.footer__navbar} aria-label="Footer">
             <NavigationFooter />
           </nav>
         </div>
