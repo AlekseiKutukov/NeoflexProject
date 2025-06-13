@@ -1,9 +1,11 @@
 import Button from '../../components/UI/Button/Button';
+import ExchangeRate from '../../components/ExchangeRate/ExchangeRate';
 import cardImage1 from './../../assets/images/cardImage1.png';
 import cardImage2 from './../../assets/images/cardImage2.png';
 import cardImage3 from './../../assets/images/cardImage3.png';
 import cardImage4 from './../../assets/images/cardImage4.png';
 import Illustration from './../../assets/images/Illustration.svg';
+import mapWorld from './../../assets/images/HugeGlobal.png';
 import styles from './HomePage.module.css';
 
 const HomePage = () => {
@@ -26,28 +28,28 @@ const HomePage = () => {
         <div className={styles.cardSelection__cards}>
           <img
             src={cardImage1}
-            alt="Дизайн карты #1"
+            alt="Card Design #1"
             width="250"
             height="150"
             className={styles.cardSelection__cardImage}
           />
           <img
             src={cardImage2}
-            alt="Дизайн карты #2"
+            alt="Card Design #2"
             width="250"
             height="150"
             className={styles.cardSelection__cardImage}
           />
           <img
             src={cardImage3}
-            alt="Дизайн карты #3"
+            alt="Card Design #3"
             width="250"
             height="150"
             className={styles.cardSelection__cardImage}
           />
           <img
             src={cardImage4}
-            alt="Дизайн карты #4"
+            alt="Card Design #4"
             width="250"
             height="150"
             className={styles.cardSelection__cardImage}
@@ -57,7 +59,12 @@ const HomePage = () => {
 
       <section className={styles.features}>
         <div className={styles.features__image}>
-          <img src={Illustration} alt="Илюстрация" width="510" height="415" />
+          <img
+            src={Illustration}
+            alt="Illustrations"
+            width="510"
+            height="415"
+          />
         </div>
         <div className={styles.features__content}>
           <div className={styles.features__title}>
@@ -75,6 +82,26 @@ const HomePage = () => {
               <li>Work anywhere in the world</li>
             </ul>
           </div>
+        </div>
+      </section>
+
+      <ExchangeRate />
+
+      <section className={styles.map}>
+        <div className={styles.map__title}>
+          You can use our services anywhere in the world
+        </div>
+        <div className={styles.map__description}>
+          Withdraw and transfer money online through our application
+        </div>
+        <div className={styles.map__image}>
+          <img
+            src={mapWorld}
+            alt="Huge Global"
+            width="1060"
+            height="540"
+            className={styles.map__img}
+          />
         </div>
       </section>
     </div>
