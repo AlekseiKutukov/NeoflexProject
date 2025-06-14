@@ -26,7 +26,7 @@ const HomePage = () => {
             <Button
               onClick={clickChooseCard}
               variant="blue"
-              aria-label="Выбрать дизайн банковской карты и подать заявку"
+              aria-label="Select a bank card design and submit an application"
             >
               Choose the card
             </Button>

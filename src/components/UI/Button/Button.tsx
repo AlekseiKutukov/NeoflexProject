@@ -7,6 +7,7 @@ interface ButtonProps {
   onClick: () => void;
   variant?: ButtonVariant;
   type?: 'button' | 'submit' | 'reset';
+  className?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -14,8 +15,9 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   variant = 'blue',
   type = 'button',
+  className,
 }) => {
-  const buttonClasses = `${styles.button} ${styles[`button--${variant}`]}`;
+  const buttonClasses = `${styles.button} ${styles[`button--${variant}`]} ${className || ''}`;
 
   return (
     <button type={type} onClick={onClick} className={buttonClasses}>

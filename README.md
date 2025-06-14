@@ -19,7 +19,8 @@ Git-flow
 - ЗАПУСК:
   npm run dev
 
-- СБОРКА И ОТПРАВКА НА GH PAGES  
+- СБОРКА И ОТПРАВКА НА GH PAGES
+  npm run build
   npm run deploy
 
 -
@@ -37,11 +38,18 @@ Git-flow
 -
 - -Основныe breakpoint
 
-      Desktop: 1300px
-      Tablet: 920px
-      Mobile: 500px
+@media (max-width: 1330px) {
+}
 
-В этом модуле не нужно верстать блок: лента новостей.
+/_ ----- Tablet ----- _/
+
+@media (max-width: 920px) {
+}
+
+/_ ----- Mobile ----- _/
+
+@media (max-width: 500px) {
+}
 
 2. Критерии принятия Pull Request:
 

@@ -15,7 +15,11 @@ const Header = () => {
           NeoBank
         </Link>
         <NavigationMenu />
-        <Button onClick={clickOnlineBank} variant="blue">
+        <Button
+          onClick={clickOnlineBank}
+          variant="blue"
+          aria-label="Go to online bank"
+        >
           Online Bank
         </Button>
       </nav>
