@@ -2,7 +2,7 @@ import styles from './NotFoundPage.module.css';
 
 const NotFoundPage = () => {
   return (
-    <div>
+    <div className={styles.bb}>
       NotFoundPage// заюзай Tooltip Для скринридеров неплохо было бы ...
     </div>
   );

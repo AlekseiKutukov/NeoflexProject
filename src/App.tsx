@@ -8,9 +8,9 @@ import './styles/base.css';
 function App() {
   return (
     <>
-      {/* <BrowserRouter basename="/NeoflexProject">  для githubPages*/}
       <div className="app-container">
-        <BrowserRouter>
+        {/* basename="/NeoflexProject" для githubPages */}
+        <BrowserRouter basename="/NeoflexProject">
           <Header />
           <main className="content-wrapper">
             <Routes>

@@ -18,6 +18,10 @@ Git-flow
 
 - ЗАПУСК:
   npm run dev
+
+- СБОРКА И ОТПРАВКА НА GH PAGES  
+  npm run deploy
+
 -
 -
 - GIT команды
