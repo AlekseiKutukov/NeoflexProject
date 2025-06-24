@@ -1,0 +1,44 @@
+.navigationFooter__list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  column-gap: 32px;
+  row-gap: 8px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navigationFooter__link {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 147%;
+  letter-spacing: 2%;
+}
+
+.navigationFooter__link:hover {
+  color: #b2a35f;
+}
+
+.navigationFooter__linkActive {
+  color: #b2a35f;
+}
+
+/* Медиа-запросы  */
+@media (max-width: 920px) {
+  .navigationFooter__list {
+    gap: 20px;
+  }
+  .navigationFooter__list {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .navigationFooter__list {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}

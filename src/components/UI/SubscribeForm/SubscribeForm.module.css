@@ -1,0 +1,74 @@
+.subscribeForm {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 10px 20px 0px #363a781a;
+  overflow: hidden;
+  min-height: 90px;
+  width: 500px;
+  color: #fff;
+}
+
+.subscribeForm__icon {
+  position: absolute;
+  left: 32px;
+  width: 28px;
+  height: auto;
+  z-index: 1;
+}
+
+.subscribeForm__input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding-left: 70px;
+  color: #9092b0;
+  font-family: Nunito Sans;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 147%;
+  letter-spacing: 2%;
+}
+
+.subscribeForm__input::placeholder {
+  color: #9092b0;
+}
+
+.subscribeForm__button {
+  position: absolute;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #686df1;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 24px;
+  z-index: 1;
+}
+
+/* .subscribeForm__button:hover {
+} */
+
+.subscribeForm__buttonIcon {
+  width: 26px;
+  height: 26px;
+}
+
+.subscribeForm__buttonText {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 127%;
+}
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 500px) {
+  .subscribeForm {
+    width: 100%;
+  }
+}
