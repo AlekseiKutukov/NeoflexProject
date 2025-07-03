@@ -1,0 +1,41 @@
+header {
+  display: grid;
+}
+
+.navigation {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  height: 64px;
+}
+
+.navbar__logo {
+  font-family: Ubuntu;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 112%;
+  letter-spacing: 2%;
+  color: #b4387a;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ----- Tablet ----- */
+
+@media (max-width: 920px) {
+  .navbar__logo {
+    font-size: 20px;
+  }
+}
+
+/* ----- Mobile ----- */
+
+@media (max-width: 500px) {
+  .navigation {
+    height: 60px;
+  }
+}

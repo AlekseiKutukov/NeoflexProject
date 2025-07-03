@@ -1,0 +1,189 @@
+{
+  "status": "ok",
+  "totalResults": 44,
+  "articles": [
+    {
+      "source": { "id": "bloomberg", "name": "Bloomberg" },
+      "author": "Anand Krishnamoorthy",
+      "title": "Asian Shares Dip as Trump Revives Tariff Threat: Markets Wrap - Bloomberg.com",
+      "description": "Asian shares dropped after President Donald Trump ratcheted up trade tensions saying he won’t delay the July 9 deadline for imposing higher levies on trading partners.",
+      "url": "https://www.bloomberg.com/news/articles/2025-07-01/stock-market-today-dow-s-p-live-updates",
+      "urlToImage": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/it8XTXnXnSKg/v0/1200x675.png",
+      "publishedAt": "2025-07-02T02:32:00Z",
+      "content": "Asian shares dropped after President Donald Trump ratcheted up trade tensions saying he wont delay the July 9 deadline for imposing higher levies on trading partners.\r\nA regional stocks gauge retreat… [+320 chars]"
+    },
+    {
+      "source": { "id": "bloomberg", "name": "Bloomberg" },
+      "author": "Liana Baker, Ryan Gould, Ian King",
+      "title": "SoftBank’s Ampere Deal Faces In-Depth US Probe in Threat to AI Ambitions - Bloomberg.com",
+      "description": "SoftBank Group Corp.’s $6.5 billion acquisition of semiconductor designer Ampere Computing LLC is facing a potentially lengthy probe by the US government.",
+      "url": "https://www.bloomberg.com/news/articles/2025-07-02/softbank-s-ampere-deal-now-faces-a-more-in-depth-review-by-ftc",
+      "urlToImage": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ig8JTpJA41Q8/v0/1200x800.jpg",
+      "publishedAt": "2025-07-02T02:29:00Z",
+      "content": "SoftBank Group Corp.s $6.5 billion acquisition of semiconductor designer Ampere Computing LLC is facing a potentially lengthy probe by the US government.\r\nThe Federal Trade Commission, one of two reg… [+268 chars]"
+    },
+    {
+      "source": { "id": null, "name": "CNBC" },
+      "author": "Brian Evans",
+      "title": "Stock futures are flat after investors sell tech names to start the second half of 2025: Live updates - CNBC",
+      "description": "Traders began the second half of 2025 with a rotation away from tech highflyers.",
+      "url": "https://www.cnbc.com/2025/07/01/stock-market-today-live-updates.html",
+      "urlToImage": "https://image.cnbcfm.com/api/v1/image/108127623-1744037104167-gettyimages-2209011891-mms21674_ynaqnm5p.jpeg?v=1744037169&w=1920&h=1080",
+      "publishedAt": "2025-07-01T23:46:00Z",
+      "content": "Stock futures were little changed on Tuesday evening, after investors began the second half with a reduced appetite for technology stocks.\r\nFutures tied to the Dow Jones Industrial Average added 9 po… [+1784 chars]"
+    },
+    {
+      "source": { "id": null, "name": "The Seattle Times" },
+      "author": "Nicholas Deshais",
+      "title": "Ferguson chooses Florida company to build new state ferries - The Seattle Times",
+      "description": "Eastern Shipbuilding Group of Florida's $714 bid to build three hybrid-electric ferries was below the state's estimate, and well below an in-state bid.",
+      "url": "https://www.seattletimes.com/seattle-news/transportation/ferguson-selects-florida-shipbuilder-to-build-fleet-of-electric-ferries/",
+      "urlToImage": "https://images.seattletimes.com/wp-content/uploads/2025/07/07012025_Ferries_151140.jpg?d=1200x630",
+      "publishedAt": "2025-07-01T22:37:57Z",
+      "content": "Washington Gov. Bob Ferguson chose the sole out-of-state shipbuilder to construct the state’s new generation of electric ferries, opting for the lower-cost bid over supporting Washington’s local ship… [+7285 chars]"
+    },
+    {
+      "source": { "id": "associated-press", "name": "Associated Press" },
+      "author": null,
+      "title": "Lululemon’s lawsuit against Costco highlights the rise of fashion ‘dupes’ - AP News",
+      "description": "Less expensive versions of high-end clothing and other accessories are just about everywhere these days. But these fashio dupes are also drawing some businesses into legal battles. In the latest example, Lululemon has sued Costco, accusing the retailer of sel…",
+      "url": "https://apnews.com/article/costco-lululemon-birkin-fashion-dupes-tiktok-2def75bcaf37e81ccb0065fe67b82101",
+      "urlToImage": "https://dims.apnews.com/dims4/default/769d211/2147483647/strip/true/crop/5114x2877+0+362/resize/1440x810!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fca%2F68%2F0f4a7c25d9c234080e2b8e3ef98c%2Fca3b65472d6f4e738f814271b5c6ccaa",
+      "publishedAt": "2025-07-01T22:29:00Z",
+      "content": "NEW YORK (AP) Fashion dupes, or less expensive versions of high-end clothing and other accessories, are just about everywhere these days. Theyre also drawing some businesses into legal battles.\r\nIn t… [+6380 chars]"
+    },
+    {
+      "source": { "id": "techcrunch", "name": "TechCrunch" },
+      "author": "Julie Bort",
+      "title": "Figma moves closer to a blockbuster IPO that could raise $1.5B - TechCrunch",
+      "description": "The financials are impressive and founder CEO Dylan Field already cashed out $20 million worth of shares last year.",
+      "url": "https://techcrunch.com/2025/07/01/figma-moves-closer-to-a-blockbuster-ipo-that-could-raise-1-5b/",
+      "urlToImage": "https://techcrunch.com/wp-content/uploads/2022/10/TechCrunch-Disrupt-Haje-Kamps-780.jpg?resize=1200,800",
+      "publishedAt": "2025-07-01T21:55:34Z",
+      "content": "Figma publicly shared its financials Tuesday, inching the design software company closer to an IPO. And while this initial S-1 is missing details such as number of shares to be offered and what price… [+3104 chars]"
+    },
+    {
+      "source": { "id": null, "name": "Decrypt" },
+      "author": "André Beganski",
+      "title": "Why Is Robinhood Building on Arbitrum Instead of Solana? - Decrypt",
+      "description": "A Kraken spokesperson told Decrypt that the company is working to bring xStocks to chains beyond Solana.",
+      "url": "https://decrypt.co/328070/why-is-robinhood-building-on-arbitrum-instead-of-solana",
+      "urlToImage": "https://cdn.decrypt.co/resize/1024/height/512/wp-content/uploads/2023/03/arbitrum-ethereum-tokens-gID_7.jpg",
+      "publishedAt": "2025-07-01T21:42:05Z",
+      "content": "In brief\r\n<ul><li>Robinhoods decision to build on Arbitrum was partly motivated by the ability to connect with other entities within Ethereums ecosystem, Robinhood Crypto General Manager Johann Kerbr… [+4470 chars]"
+    },
+    {
+      "source": { "id": null, "name": "Financial Times" },
+      "author": "Akila Quinio, Joshua Franklin",
+      "title": "US banks announce big shareholder payouts as Fed eases stress tests - Financial Times",
+      "description": "Wall Street titans to raise dividends and buy back shares on back of lighter oversight",
+      "url": "https://www.ft.com/content/081f8752-8022-4c02-9d85-cea6a133ac8f",
+      "urlToImage": "https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fd1e00ek4ebabms.cloudfront.net%2Fproduction%2Fe54d3b03-faa9-419e-be30-a56c1e687ceb.jpg?source=next-barrier-page",
+      "publishedAt": "2025-07-01T21:15:27Z",
+      "content": "Complete digital access to quality analysis and expert insights, complemented with our award-winning Weekend Print edition.\r\n<ul><li></li>Everything in Print<li></li>Weekday Print Edition<li></li>FT … [+202 chars]"
+    },
+    {
+      "source": {
+        "id": "the-wall-street-journal",
+        "name": "The Wall Street Journal"
+      },
+      "author": "WSJ",
+      "title": "JPMorgan Chase Ups Dividend, Approves $50 Billion Buyback After Stress Test - WSJ",
+      "description": null,
+      "url": "https://www.wsj.com/finance/banking/jpmorgan-chase-ups-dividend-approves-50-billion-buyback-after-stress-test-91bc18b5",
+      "urlToImage": null,
+      "publishedAt": "2025-07-01T21:12:00Z",
+      "content": null
+    },
+    {
+      "source": { "id": "associated-press", "name": "Associated Press" },
+      "author": null,
+      "title": "Consumer Financial Protection Bureau dismisses $95M overdraft case vs. Navy Federal Credit Union - AP News",
+      "description": "The Consumer Financial Protection Bureau, led by President Trump’s administration, has dropped a case against Navy Federal Credit Union. The case involved $80 million in refunds for illegal overdraft fees charged to service members. The issue, known as “autho…",
+      "url": "https://apnews.com/article/navy-federal-credit-union-cfpb-trump-overdrafts-5e010e613b4d867c775573d2e9433870",
+      "urlToImage": "https://dims.apnews.com/dims4/default/4714fe9/2147483647/strip/true/crop/2500x1406+0+82/resize/1440x810!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fe3%2F58%2F80d21f68aee227b236f8ff98aecc%2Fbedd15e9e9db4b6c9b3ef4b5421c79a2",
+      "publishedAt": "2025-07-01T20:56:00Z",
+      "content": "NEW YORK (AP) Navy Federal Credit Union will no longer have to refund $80 million to servicemen and women for illegally charging them overdraft fees on their accounts, after the President Donald Trum… [+2532 chars]"
+    },
+    {
+      "source": { "id": null, "name": "Robb Report" },
+      "author": "Jonny Lieberman",
+      "title": "Meet the 2027 Ferrari Amalfi. Here’s What to Know. - Robb Report",
+      "description": "The 2027 Ferrari Amalfi replaces the Roma as a 631 hp grand tourer that will reach the market next year.",
+      "url": "http://robbreport.com/motors/cars/2027-ferrari-amalfi-revealed-1236855982/",
+      "urlToImage": "https://robbreport.com/wp-content/uploads/2025/07/opener-w-_a197e4.jpg?w=681&h=383&crop=1",
+      "publishedAt": "2025-07-01T20:40:00Z",
+      "content": "On paper, there’s no second act for Ferrari’s unexpected 2+2 grand tourer, the Roma. Introduced in 2020 as something of a Porsche 911 Turbo and/or Aston Martin Vantage competitor, the Roma lasted but… [+4418 chars]"
+    },
+    {
+      "source": { "id": null, "name": "MarketWatch" },
+      "author": "Bill Peters",
+      "title": "Constellation Brands says ‘socioeconomic headwinds’ are hurting beer sales, amid immigration crackdown - MarketWatch",
+      "description": "‘We don’t expect a linear recovery among Hispanic consumers and see potential for choppiness in sentiment given ICE-related protests nationwide,’ RBC analyst says",
+      "url": "https://www.marketwatch.com/story/constellation-brands-says-socioeconomic-headwinds-are-hurting-beer-sales-amid-immigration-crackdown-81a69126",
+      "urlToImage": "https://images.mktw.net/im-85497943/social",
+      "publishedAt": "2025-07-01T20:38:00Z",
+      "content": "Shares of Constellation Brands fell after hours on Tuesday after the beer and wine producer forecast better-than-expected profits but said socioeconomic headwinds had hit beer demand.\r\nExecutives at … [+356 chars]"
+    },
+    {
+      "source": { "id": "nbc-news", "name": "NBC News" },
+      "author": "Steve Kopack",
+      "title": "Trump's tariffs kept Fed from cutting rates, Jerome Powell says - NBC News",
+      "description": "The Federal Reserve would have cut interest rates by now if President Donald Trump's tariffs weren't so substantial, central bank chief Jerome Powell said Tuesday",
+      "url": "https://www.nbcnews.com/business/economy/trumps-tariffs-kept-fed-cutting-rates-jerome-powell-says-rcna216220",
+      "urlToImage": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/rockcms/2025-07/250701-jerome-powell-ew-1112a-dd49b8.jpg",
+      "publishedAt": "2025-07-01T20:37:00Z",
+      "content": "The Federal Reserve would have cut interest rates by now if President Donald Trump's tariffs weren't so substantial, central bank chief Jerome Powell said Tuesday.\r\nTrumps ever-changing tariff agenda… [+4225 chars]"
+    },
+    {
+      "source": { "id": "ign", "name": "IGN" },
+      "author": "Chris Reed",
+      "title": "I Found 20 Fourth of July Sales With Deals Worth Checking Out - IGN",
+      "description": "You can save a bunch of money on all kinds of things during these Fourth of July sales at Amazon, Walmart, Target, and many more retailers.",
+      "url": "https://www.ign.com/articles/best-fourth-of-july-sales-2025",
+      "urlToImage": "https://assets1.ignimgs.com/2015/12/13/independencejpg-c73407.jpg?width=1280",
+      "publishedAt": "2025-07-01T19:54:50Z",
+      "content": "Its the week of Independence Day, which means tons of retailers are running major sales. You can save money on just about everything in this year's Fourth of July sales, from desks and mattresses to … [+2611 chars]"
+    },
+    {
+      "source": { "id": "cnn", "name": "CNN" },
+      "author": "Ramishah Maruf",
+      "title": "Waffle House drops its egg surcharge - CNN",
+      "description": "Waffle House had a welcome announcement for customers of its round-the-clock breakfast offerings: it has officially taken its egg surcharge off the menu.",
+      "url": "https://www.cnn.com/2025/07/01/business/waffle-house-drops-its-egg-surcharge",
+      "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2197814470.jpg?c=16x9&q=w_800,c_fill",
+      "publishedAt": "2025-07-01T19:37:00Z",
+      "content": "Waffle House had a welcome announcement for customers of its round-the-clock breakfast offerings: it has officially taken its egg surcharge off the menu.\r\nThe Georgia-based chain that maintains an ee… [+1366 chars]"
+    },
+    {
+      "source": { "id": "wired", "name": "Wired" },
+      "author": "Zoë Schiffer",
+      "title": "Here’s What Mark Zuckerberg Is Offering Top AI Talent - WIRED",
+      "description": "The Meta CEO is leading a hiring blitz, offering top talent at OpenAI eye-watering pay packages and endless access to cutting-edge chips.",
+      "url": "https://www.wired.com/story/mark-zuckerberg-meta-offer-top-ai-talent-300-million/",
+      "urlToImage": "https://media.wired.com/photos/6863fe1816fbdea57514d650/191:100/w_1280,c_limit/zuck-ai-money-biz-2208764114.jpg",
+      "publishedAt": "2025-07-01T18:48:00Z",
+      "content": "As Mark Zuckerberg staffs up Metas new superintelligence lab, hes offered top tier research talent pay packages of up to $300 million over four years, with more than $100 million in total compensatio… [+2787 chars]"
+    },
+    {
+      "source": { "id": "axios", "name": "Axios" },
+      "author": "Jason Lalljee",
+      "title": "All the places in the U.S. where minimum wage went up in July - Axios",
+      "description": "Alaska, Oregon, and D.C. changes alone mean paycheck boosts for more than 880,000 people.",
+      "url": "https://www.axios.com/2025/07/01/minimum-wage-san-francisco-los-angeles",
+      "urlToImage": "https://images.axios.com/rGMrHLli5Da9T83HioDeGwD_Mtk=/0x314:4000x2564/1366x768/2025/07/01/1751393447649.jpg",
+      "publishedAt": "2025-07-01T18:21:50Z",
+      "content": "Minimum wage increases went into effect across several states and localities on Tuesday.\r\nWhy it matters: In Alaska, Oregon, and Washington, D.C. alone,that means paycheck boosts for more than 880,00… [+1599 chars]"
+    },
+    {
+      "source": { "id": null, "name": "MarketWatch" },
+      "author": "Joseph Adinolfi",
+      "title": "S&P 500 just saw its first ‘golden cross’ in more than 2 years. Here’s what comes next. - MarketWatch",
+      "description": "The positive technical indicator suggests momentum is building in bulls’ favor",
+      "url": "https://www.marketwatch.com/story/s-p-500-is-heading-for-its-first-golden-cross-in-more-than-2-years-heres-what-comes-next-7de9ce60",
+      "urlToImage": "https://images.mktw.net/im-52868090/social",
+      "publishedAt": "2025-07-01T18:13:00Z",
+      "content": "The S&amp;P 500 is kicking off the second half of 2025 in style. \r\nFor the first time in more than two years, the benchmark index tallied a bullish golden cross on Tuesday. It was just the latest mil… [+79 chars]"
+    }
+  ]
+}
