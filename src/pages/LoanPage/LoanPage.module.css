@@ -1,0 +1,213 @@
+.cardPromo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 60px;
+  background: linear-gradient(to bottom, #d8e4f0, #fee0b8);
+  box-shadow:
+    0px 2px 4px 0px #00000033,
+    0px 0px 8px 0px #00000014;
+  border-radius: 28px;
+  margin: 40px auto;
+}
+
+.cardPromo__conditions {
+  display: flex;
+  gap: 30px; /* Отступ между колонками характеристик */
+  flex-wrap: wrap; /* Перенос на новую строку, если не хватает места */
+}
+
+.cardPromo__conditionsItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Выравнивание по левому краю внутри элемента */
+}
+
+.cardPromo__conditionsValue {
+  font-size: 1.4em;
+  font-weight: 600;
+  color: #003cff; /* Акцентный цвет (из твоих предыдущих задач) */
+}
+
+.cardPromo__conditionsLabel {
+  font-size: 0.9em;
+  color: #777;
+}
+
+/* --- Общий контейнер страницы --- */
+/* --- Общий контейнер страницы --- */
+/* --- Общий контейнер страницы --- */
+/* --- Общий контейнер страницы --- */
+/* --- Общий контейнер страницы --- */
+/* --- Общий контейнер страницы --- */
+
+.loanPage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px; /* Общие отступы для всей страницы */
+}
+
+/* --- Секция CreditCardHero --- */
+.creditCardHero {
+  display: flex;
+  align-items: center; /* Центрируем контент по вертикали */
+  justify-content: space-between; /* Распределяем колонки по краям */
+  gap: 60px; /* Отступ между колонками */
+  margin-bottom: 80px; /* Отступ между Hero-секцией и табами */
+  background-color: #e6f7ff; /* Легкий фон для Hero */
+  padding: 40px;
+  border-radius: 12px;
+}
+
+.creditCardHero__textColumn {
+  flex: 1; /* Позволяет колонке занимать доступное пространство */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Выравнивание по левому краю */
+  text-align: left;
+}
+
+.creditCardHero__title {
+  font-size: 2.8em;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.creditCardHero__description {
+  font-size: 1.1em;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.creditCardHero__conditions {
+  /* Стили для условий, например, если это список */
+  margin-bottom: 30px;
+  font-size: 1em;
+  color: #666;
+}
+
+.creditCardHero__conditions ul {
+  list-style: disc; /* Или 'none' если используете свои иконки */
+  margin-left: 20px;
+  padding: 0;
+}
+
+.creditCardHero__conditions li {
+  margin-bottom: 8px;
+}
+
+.creditCardHero__button {
+  /* Если нужно переопределить стили кнопки для этой секции */
+  padding: 15px 30px;
+  font-size: 1.1em;
+}
+
+.creditCardHero__imageColumn {
+  flex: 1; /* Позволяет колонке занимать доступное пространство */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.creditCardHero__image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- Секция табов (cardTabs) --- */
+.cardTabs__navigation {
+  display: flex;
+  justify-content: flex-start; /* Табы выравниваем по левому краю */
+  border-bottom: 1px solid #e0e0e0; /* Общая тонкая линия под табами */
+  margin-bottom: 30px;
+  position: relative; /* Для жирной линии */
+}
+
+.cardTabs__button {
+  background: none;
+  border: none;
+  padding: 15px 25px; /* Отступы для кнопок табов */
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #777;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: relative; /* Важно для ::after */
+  outline: none; /* Убираем стандартный outline при фокусе, можно добавить кастомный */
+}
+
+.cardTabs__button:hover {
+  color: #0056b3;
+}
+
+/* Жирная линия под активным табом */
+.cardTabs__button--active {
+  color: #007bff;
+}
+
+.cardTabs__button--active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px; /* -1px, чтобы перекрыть тонкую линию border-bottom у родителя */
+  width: 100%;
+  height: 3px; /* Толщина жирной линии */
+  background-color: #007bff; /* Цвет жирной линии */
+  border-radius: 2px 2px 0 0;
+}
+
+.cardTabs__content {
+  padding: 20px 0; /* Отступ между навигацией и содержимым таба */
+  /* Здесь можно добавить стили для контейнера содержимого, например, border */
+}
+
+/* --- Медиа-запросы для адаптивности --- */
+@media (max-width: 992px) {
+  .creditCardHero {
+    flex-direction: column; /* Колонки Hero-секции располагаются в столбец */
+    gap: 40px;
+    padding: 30px;
+    text-align: center; /* Центрируем текст */
+  }
+
+  .creditCardHero__textColumn {
+    align-items: center; /* Центрируем элементы внутри текстовой колонки */
+  }
+
+  .creditCardHero__title {
+    font-size: 2.2em;
+  }
+
+  .creditCardHero__description {
+    font-size: 1em;
+  }
+
+  .cardTabs__navigation {
+    flex-wrap: wrap; /* Табы будут переноситься на новую строку */
+    justify-content: center; /* Центрируем табы */
+  }
+
+  .cardTabs__button {
+    padding: 10px 15px;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 576px) {
+  .loanPage {
+    padding: 20px 10px;
+  }
+  .creditCardHero {
+    padding: 20px;
+  }
+  .creditCardHero__title {
+    font-size: 1.8em;
+  }
+  .creditCardHero__button {
+    padding: 12px 20px;
+    font-size: 1em;
+  }
+}
