@@ -1,0 +1,100 @@
+.notFoundPage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.notFoundPage__contentColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  flex: 1;
+  gap: 32px;
+}
+
+.notFoundPage__oops {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 112%;
+  letter-spacing: 0%;
+  color: #1c1c1e;
+}
+
+.notFoundPage__title {
+  color: #000;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 112%;
+  letter-spacing: 0%;
+}
+
+.notFoundPage__description {
+  color: #4b4b4b;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 112%;
+  letter-spacing: 0%;
+}
+
+.notFoundPage__button {
+  width: 192px;
+  height: 40px;
+  border-radius: 8px;
+  padding: 0;
+}
+
+.notFoundPage__imageColumn {
+  flex: 1;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  max-width: 50%;
+}
+
+.notFoundPage__image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ----- Tablet ----- */
+
+@media (max-width: 920px) {
+  .notFoundPage {
+    flex-direction: column;
+    gap: 40px;
+    padding: 30px 15px;
+  }
+
+  .notFoundPage__contentColumn {
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .notFoundPage__imageColumn {
+    max-width: 80%;
+  }
+
+  .notFoundPage__image {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ----- Mobile ----- */
+
+@media (max-width: 500px) {
+  .notFoundPage__title {
+    font-size: 2.5em;
+  }
+  .notFoundPage__description {
+    font-size: 0.9em;
+  }
+  .notFoundPage__imageColumn {
+    max-width: 100%;
+  }
+}
