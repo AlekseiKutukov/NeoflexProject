@@ -121,26 +121,6 @@
   margin: 8px 0 48px 0;
 }
 
-.news {
-  margin-bottom: 176px;
-}
-
-.news__title {
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 50px;
-  text-align: center;
-  margin-top: 48px;
-}
-
-.news__description {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 50px;
-  text-align: center;
-  margin-top: 8px;
-}
-
 .support {
   display: flex;
   flex-direction: column;
