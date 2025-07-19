@@ -62,3 +62,7 @@
   max-width: 145px;
   border-radius: 8px;
 }
+
+.cardPromo__imageColumn img {
+  border-radius: 15px;
+}

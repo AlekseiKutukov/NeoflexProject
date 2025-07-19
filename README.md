@@ -18,6 +18,7 @@ Git-flow
 
 - ЗАПУСК:
   npm run dev
+  docker compose up --build
 
 - СБОРКА И ОТПРАВКА НА GH PAGES
   npm run build
@@ -28,20 +29,6 @@ Git-flow
 - Добавь после
   TanStack Query
 -
-- GIT команды
-  1. git flow feature start module_1 создать и переключиться на ветку
-  2. делаю комиты
-  3. git push origin feature/module_1 для оценки куратора?
-  4. git flow feature finish module_1 делаю я или куратор?
--
--
-- Вопросы куратору:
-
-1. Спроси про комиты
-2. Слишком разросшиеся это имеется в виду хоумпейдж, где большие секции вынести в отдельные компоненты?
-3. По поводу бэм, это прописано в задание. эту часть можно игнорировать или не стоит?
-4. Насколько критичны дедлайны
-5. "Количество новостей не ограничено, но не меньше 20." так написано в задании но мне прилетает меньше?
 
 -
 -
@@ -59,23 +46,6 @@ Git-flow
 
 @media (max-width: 500px) {
 }
-
-2. Критерии принятия Pull Request:
-
-   Использована БЭМ методология
-   Правильное подключение шрифтов и CSS файлов
-   Используется семантическая вёрстка
-   Страница адаптивная (ничего не съезжает и не ломается)
-
--
--
--
--
--
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

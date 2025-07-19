@@ -1,19 +1,19 @@
-import { Link } from 'react-router-dom';
-import Button from '../../components/UI/Button/Button';
-import ExchangeRate from '../../components/ExchangeRate/ExchangeRate';
-import SubscribeForm from '../../components/UI/SubscribeForm/SubscribeForm';
-import NewsFeed from '../../components/NewsFeed/NewsFeed';
-import cardImage1 from './../../assets/images/cardImage1.png';
-import cardImage2 from './../../assets/images/cardImage2.png';
-import cardImage3 from './../../assets/images/cardImage3.png';
-import cardImage4 from './../../assets/images/cardImage4.png';
-import Illustration from './../../assets/images/Illustration.svg';
-import mapWorld from './../../assets/images/HugeGlobal.png';
-import styles from './HomePage.module.css';
+// import { Link } from "react-router-dom";
+import Button from "../../components/UI/Button/Button";
+import ExchangeRate from "../../components/ExchangeRate/ExchangeRate";
+import NewsFeed from "../../components/NewsFeed/NewsFeed";
+import SupportBlock from "../../components/SupportBlock/SupportBlock";
+import cardImage1 from "./../../assets/images/cardImage1.png";
+import cardImage2 from "./../../assets/images/cardImage2.png";
+import cardImage3 from "./../../assets/images/cardImage3.png";
+import cardImage4 from "./../../assets/images/cardImage4.png";
+import Illustration from "./../../assets/images/Illustration.svg";
+import mapWorld from "./../../assets/images/HugeGlobal.png";
+import styles from "./HomePage.module.css";
 
 const HomePage = () => {
   const clickChooseCard = () => {
-    console.log('Клац кнопка Choose the card');
+    console.log("Клац кнопка Choose the card");
   };
   return (
     <div className={styles.homePage}>
@@ -113,31 +113,7 @@ const HomePage = () => {
       </section>
 
       <NewsFeed />
-
-      <section className={styles.support}>
-        <Link
-          to="/about"
-          className={styles.support__title}
-          aria-label="Go to support and contact page"
-        >
-          Support
-        </Link>
-        <Link
-          to="/about"
-          className={styles.support__newsletterText}
-          aria-label="Go to page Newsletter"
-        >
-          Subscribe & get
-        </Link>
-        <Link
-          to="/about"
-          className={styles.support__newsletterNews}
-          aria-label="Go to page Bank News"
-        >
-          Bank News
-        </Link>
-        <SubscribeForm />
-      </section>
+      <SupportBlock />
     </div>
   );
 };
