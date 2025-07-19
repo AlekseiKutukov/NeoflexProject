@@ -30,7 +30,10 @@ Git-flow
   TanStack Query
 -
 
--
+Module 3
+
+1. Реализована отправка email, для подписки на новости (значение хранится в LocalStorage)
+
 -
 - -Основныe breakpoint
 

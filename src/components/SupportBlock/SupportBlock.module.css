@@ -29,3 +29,10 @@
   letter-spacing: 2%;
   margin-bottom: 62px;
 }
+
+.support__successMessage {
+  font-size: 2em;
+  color: #28a745;
+  font-weight: 600;
+  text-align: center;
+}
