@@ -1,11 +1,5 @@
 import { useState } from "react";
-
-//
-// import cardImage2 from './../../assets/images/cardImage2.png';
-// import cardImage3 from './../../assets/images/cardImage3.png';
-// import cardImage4 from './../../assets/images/cardImage4.png';
 import CreditCardModule from "./CreditCard/CreditCard";
-
 import AboutCardTab from "../../components/LoanPageTabs/AboutCardTab/AboutCardTab";
 import CashbackTab from "../../components/LoanPageTabs/CashbackTab/CashbackTab";
 import FaqTab from "../../components/LoanPageTabs/FaqTab/FaqTab";
