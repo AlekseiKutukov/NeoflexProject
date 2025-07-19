@@ -1,10 +1,18 @@
+import type { RefObject } from "react";
 import styles from "./CreditCard.module.css";
 import Button from "../../../components/UI/Button/Button";
 import cardImage1 from "./../../../assets/images/cardImage1.png";
 
-const CreditCard = () => {
+interface CreditCardProps {
+  targetRef: RefObject<HTMLDivElement | null>;
+}
+
+const CreditCard: React.FC<CreditCardProps> = ({ targetRef }) => {
   const handleClickApplyForCard = () => {
-    console.log("klac klac");
+    targetRef.current!.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   return (
@@ -56,7 +64,7 @@ const CreditCard = () => {
           alt="Platinum digital credit card"
           width="250"
           height="150"
-          className={styles.cardProm__cardImage}
+          className={styles.cardPromo__cardImage}
         />
       </div>
     </section>

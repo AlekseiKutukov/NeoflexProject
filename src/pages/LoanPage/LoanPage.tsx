@@ -1,10 +1,10 @@
-import { useState } from "react";
-import CreditCardModule from "./CreditCard/CreditCard";
+import { useState, useRef } from "react";
+import CreditCard from "./CreditCard/CreditCard";
 import AboutCardTab from "../../components/LoanPageTabs/AboutCardTab/AboutCardTab";
 import CashbackTab from "../../components/LoanPageTabs/CashbackTab/CashbackTab";
 import FaqTab from "../../components/LoanPageTabs/FaqTab/FaqTab";
 import RatesTab from "../../components/LoanPageTabs/RatesTab/RatesTab";
-// import Button from "../../components/UI/Button/Button";
+import CustomizeCardForm from "../../components/UI/CustomizeCardForm/CustomizeCardForm";
 import styles from "./LoanPage.module.css";
 
 const LoanPage = () => {
@@ -17,9 +17,11 @@ const LoanPage = () => {
     setActiveTab(tab);
   };
 
+  const applicationFormRef = useRef<HTMLDivElement>(null);
+
   return (
     <div className={styles.loanPage}>
-      <CreditCardModule />
+      <CreditCard targetRef={applicationFormRef} />
 
       {/* --- Секция табов --- */}
       <section className={styles.cardTabs}>
@@ -66,6 +68,8 @@ const LoanPage = () => {
           {activeTab === "faq" && <FaqTab />}
         </div>
       </section>
+
+      <CustomizeCardForm ref={applicationFormRef} />
     </div>
   );
 };

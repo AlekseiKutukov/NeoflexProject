@@ -54,7 +54,7 @@
 
 .cardPromo__conditions {
   display: flex;
-  gap: 30px;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
