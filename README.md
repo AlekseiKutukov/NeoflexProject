@@ -33,6 +33,13 @@ Git-flow
 Module 3
 
 1. Реализована отправка email, для подписки на новости (значение хранится в LocalStorage)
+2. При клике на кнопку "Apply for card", происходит плавное перемещение к форме.
+3. Cозданы компоненты: Tabs, Divider(полоса разделитель), Tooltip подсказки в credit card
+
+Accordion сворачивание faq,
+Tooltip подсказки в credit card
+
+Loader
 
 -
 - -Основныe breakpoint

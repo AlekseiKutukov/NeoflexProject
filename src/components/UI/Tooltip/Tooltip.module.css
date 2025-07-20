@@ -1,0 +1,29 @@
+.tooltipWrapper {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+}
+
+.tooltipContent {
+  width: 170px;
+  position: absolute;
+  z-index: 1000;
+  background-color: #3d3d3d;
+  color: #fff;
+  padding: 8px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.tooltipContent.bottom {
+  top: 100%;
+}
+
+/* .tooltipContent.top {
+}
+
+.tooltipContent.left {
+}
+
+.tooltipContent.right {
+} */

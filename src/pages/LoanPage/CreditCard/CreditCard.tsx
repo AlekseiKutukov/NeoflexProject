@@ -1,4 +1,5 @@
 import type { RefObject } from "react";
+import Tooltip from "../../../components/UI/Tooltip/Tooltip";
 import styles from "./CreditCard.module.css";
 import Button from "../../../components/UI/Button/Button";
 import cardImage1 from "./../../../assets/images/cardImage1.png";
@@ -27,23 +28,38 @@ const CreditCard: React.FC<CreditCardProps> = ({ targetRef }) => {
         </div>
         <div className={styles.cardPromo__conditions}>
           <div className={styles.cardPromo__conditionsItem}>
-            <span className={styles.cardPromo__conditionsValue}>
-              Up to 160 days
-            </span>
+            <Tooltip
+              content="When repaying the full debt up to 160 days."
+              position="bottom"
+            >
+              <span className={styles.cardPromo__conditionsValue}>
+                Up to 160 days
+              </span>
+            </Tooltip>
             <span className={styles.cardPromo__conditionsLabel}>
               No percent
             </span>
           </div>
           <div className={styles.cardPromo__conditionsItem}>
-            <span className={styles.cardPromo__conditionsValue}>
-              Up to 600 000 ₽
-            </span>
+            <Tooltip
+              content="Over the limit willaccrue percent"
+              position="bottom"
+            >
+              <span className={styles.cardPromo__conditionsValue}>
+                Up to 600 000 ₽
+              </span>
+            </Tooltip>
             <span className={styles.cardPromo__conditionsLabel}>
               Credit limit
             </span>
           </div>
           <div className={styles.cardPromo__conditionsItem}>
-            <span className={styles.cardPromo__conditionsValue}>0 ₽</span>
+            <Tooltip
+              content="Promotion valid until December 31, 2022."
+              position="bottom"
+            >
+              <span className={styles.cardPromo__conditionsValue}>0 ₽</span>
+            </Tooltip>
             <span className={styles.cardPromo__conditionsLabel}>
               Card service is free
             </span>
