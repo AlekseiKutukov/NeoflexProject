@@ -40,7 +40,7 @@ const LoanPage = () => {
             role="tab"
             aria-selected={activeTab === "rates"}
           >
-            Rates
+            Rates and conditions
           </button>
           <button
             className={`${styles.cardTabs__button} ${activeTab === "cashback" ? styles["cardTabs__button--active"] : ""}`}
