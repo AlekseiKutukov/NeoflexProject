@@ -38,7 +38,7 @@ Module 3
 
 Accordion сворачивание faq,
 
-Loader
+ЕСЛИ БУДЕТ ВРЕМЯ СДЕЛАЙ КОМПОНЕНТ ОДИН НА 2 Cashback И About Card (много дублирования )
 
 -
 - -Основныe breakpoint
