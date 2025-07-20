@@ -1,7 +1,21 @@
-import styles from './FaqTab.module.css';
-
+import React from "react";
+import Accordion from "../../UI/Accordion/Accordion";
+import { groupedFaqData } from "../../../data/faqData";
 const FaqTab = () => {
-  return <div>FaqTab</div>;
+  // Получаем массив названий категорий (ключей объекта groupedFaqData)
+  const categories = Object.keys(groupedFaqData);
+
+  return (
+    <>
+      {categories.map((category) => (
+        <Accordion
+          key={category}
+          sectionTitle={category}
+          items={groupedFaqData[category]}
+        />
+      ))}
+    </>
+  );
 };
 
 export default FaqTab;
