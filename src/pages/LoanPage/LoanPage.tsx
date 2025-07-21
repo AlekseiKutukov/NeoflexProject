@@ -5,6 +5,7 @@ import CashbackTab from "../../components/LoanPageTabs/CashbackTab/CashbackTab";
 import FaqTab from "../../components/LoanPageTabs/FaqTab/FaqTab";
 import RatesTab from "../../components/LoanPageTabs/RatesTab/RatesTab";
 import CustomizeCardForm from "../../components/UI/CustomizeCardForm/CustomizeCardForm";
+import HowGetCard from "../../components/HowGetCard/HowGetCard";
 import styles from "./LoanPage.module.css";
 
 const LoanPage = () => {
@@ -68,7 +69,7 @@ const LoanPage = () => {
           {activeTab === "faq" && <FaqTab />}
         </div>
       </section>
-
+      <HowGetCard />
       <CustomizeCardForm ref={applicationFormRef} />
     </div>
   );
