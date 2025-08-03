@@ -1,0 +1,38 @@
+.support {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.support__title {
+  font-family: Ubuntu;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 147%;
+  letter-spacing: 2%;
+  color: #eb801d;
+}
+
+.support__newsletterText {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 120%;
+  letter-spacing: 2%;
+}
+
+.support__newsletterNews {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 147%;
+  letter-spacing: 2%;
+  margin-bottom: 62px;
+}
+
+.support__successMessage {
+  font-size: 2em;
+  color: #28a745;
+  font-weight: 600;
+  text-align: center;
+}

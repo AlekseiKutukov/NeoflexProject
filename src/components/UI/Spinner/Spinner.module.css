@@ -1,0 +1,27 @@
+.spinnerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinnerSvg {
+  transform-origin: center center;
+}
+
+.spinnerBackgroundCircle {
+  opacity: 0.3;
+}
+
+.spinnerForegroundCircle {
+  animation: rotate var(--animation-duration, 1.2s) linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

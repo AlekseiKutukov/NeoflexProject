@@ -1,6 +1,6 @@
-import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
-import styles from './NavigationMenu.module.css';
+import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import styles from "./NavigationMenu.module.css";
 
 interface NavItem {
   label: string;
@@ -8,10 +8,10 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: 'Credit card', path: '/asd' },
-  { label: 'Product', path: '/ss' },
-  { label: 'Account', path: '/dd' },
-  { label: 'Resource', path: '/aa' },
+  { label: "Credit card", path: "/loan-page" },
+  { label: "Product", path: "/ss" },
+  { label: "Account", path: "/dd" },
+  { label: "Resource", path: "/aa" },
 ];
 
 const NavigationMenu = () => {
@@ -29,18 +29,18 @@ const NavigationMenu = () => {
         aria-label="Toggle navigation menu"
       >
         <div
-          className={`${styles.burgerLine} ${isMenuOpen ? styles.burgerLineActive1 : ''}`}
+          className={`${styles.burgerLine} ${isMenuOpen ? styles.burgerLineActive1 : ""}`}
         />
         <div
-          className={`${styles.burgerLine} ${isMenuOpen ? styles.burgerLineActive2 : ''}`}
+          className={`${styles.burgerLine} ${isMenuOpen ? styles.burgerLineActive2 : ""}`}
         />
         <div
-          className={`${styles.burgerLine} ${isMenuOpen ? styles.burgerLineActive3 : ''}`}
+          className={`${styles.burgerLine} ${isMenuOpen ? styles.burgerLineActive3 : ""}`}
         />
       </button>
 
       <ul
-        className={`${styles.navbar__list} ${isMenuOpen ? styles.navbar__listOpen : ''}`}
+        className={`${styles.navbar__list} ${isMenuOpen ? styles.navbar__listOpen : ""}`}
       >
         {navItems.map((item) => (
           <li key={item.path} className={styles.navbar__item}>
@@ -48,7 +48,7 @@ const NavigationMenu = () => {
               to={item.path}
               className={({ isActive }) =>
                 isActive
-                  ? `${styles.navbar__link} ${styles['navbar__link--active']}`
+                  ? `${styles.navbar__link} ${styles["navbar__link--active"]}`
                   : styles.navbar__link
               }
               onClick={() => setIsMenuOpen(false)}

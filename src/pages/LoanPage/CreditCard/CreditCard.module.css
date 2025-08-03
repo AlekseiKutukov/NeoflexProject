@@ -1,0 +1,87 @@
+.cardPromo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 60px;
+  background: linear-gradient(to bottom, #d8e4f0, #fee0b8);
+  box-shadow:
+    0px 2px 4px 0px #00000033,
+    0px 0px 8px 0px #00000014;
+  border-radius: 28px;
+  margin: 40px auto;
+}
+
+.cardPromo__title {
+  font-size: 48px;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.cardPromo__description {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 2%;
+  color: #2d3748;
+  max-width: 515px;
+}
+
+.cardPromo__conditionsValue {
+  color: #3d3d3d;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 2%;
+  margin-bottom: 10px;
+}
+
+.cardPromo__conditionsLabel {
+  color: #3d3d3d;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 2%;
+}
+
+.cardPromo__textColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.cardPromo__conditionsItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cardPromo__conditions {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.cardPromo__button {
+  max-width: 145px;
+  border-radius: 8px;
+}
+
+.cardPromo__imageColumn img {
+  border-radius: 15px;
+}
+
+.cardPromo__imageColumn img:hover {
+  transform: rotate(15deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Адаптивность */
+@media (max-width: 800px) {
+  .cardPromo {
+    display: block;
+  }
+
+  .cardPromo__imageColumn img {
+    margin: 0 auto;
+    display: block;
+    padding-top: 20px;
+    border-radius: 15px;
+  }
+}

@@ -1,0 +1,36 @@
+.aboutCardFlex__card {
+  padding: 32px;
+  border-radius: 28px;
+}
+.aboutCardFlex__title {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 147%;
+}
+
+.aboutCardFlex__description {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+}
+
+.aboutCardFlex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.aboutCardFlex > .aboutCardFlex__card {
+  flex: 1 1 342px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 2px 4px 0px #00000033;
+  gap: 16px;
+}
+
+.aboutCardFlex__card:nth-child(odd) {
+  background-color: #eaecee;
+}
+.aboutCardFlex__card:nth-child(even) {
+  background-color: #7f92acb2;
+}
