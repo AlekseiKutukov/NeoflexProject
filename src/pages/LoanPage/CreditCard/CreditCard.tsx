@@ -78,8 +78,8 @@ const CreditCard: React.FC<CreditCardProps> = ({ targetRef }) => {
         <img
           src={cardImage1}
           alt="Platinum digital credit card"
-          width="250"
-          height="150"
+          width="380"
+          height="226"
           className={styles.cardPromo__cardImage}
         />
       </div>

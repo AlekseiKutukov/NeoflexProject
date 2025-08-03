@@ -1,0 +1,245 @@
+.customizeCardForm {
+  background-color: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0px 2px 4px 0px #00000033;
+  box-shadow: 0px 0px 8px 0px #00000014;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.customizeCardForm__topSection {
+  gap: 42px;
+  margin-bottom: 32px;
+  display: flex;
+}
+
+.customizeCardForm__left {
+  border-right: 1px dashed #80808066;
+  padding-right: 42px;
+  flex: 1;
+}
+
+.customizeCardForm__header {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  display: flex;
+}
+
+.customizeCardForm__right {
+  flex: 1;
+}
+
+.customizeCardForm__title {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.customizeCardForm__info {
+  font-weight: 500;
+  font-size: 16px;
+  color: #000;
+}
+
+.customizeCardForm__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.customizeCardForm__section {
+  border: 1px solid #5b35d5;
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.customizeCardForm__sectionTitle {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.customizeCardForm__amountInput {
+  border: none;
+  outline: none;
+  font-weight: 500;
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+
+.customizeCardForm__amountDisplayRange {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #786d6d;
+}
+
+.customizeCardForm__underline {
+  background-color: #80808033;
+  width: 40%;
+  height: 1px;
+  margin-top: 10px;
+}
+
+.customizeCardForm__chosenAmountValue {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.customizeCardForm__chosenAmountDisplay {
+  font-weight: 700;
+  font-size: 20px;
+  padding-bottom: 16px;
+}
+
+.customizeCardForm__sectionFormTitle {
+  font-weight: 700;
+  font-size: 20px;
+  padding-bottom: 26px;
+}
+
+.customizeCardForm__sectionHeader {
+  margin-bottom: 20px;
+}
+
+.customizeCardForm__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.customizeCardForm__rangeSlider {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    #5b35d5 0%,
+    #5b35d5 var(--range-progress, 0%),
+    #ddd var(--range-progress, 0%),
+    #ddd 100%
+  );
+}
+
+.customizeCardForm__rangeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #5b35d5;
+  cursor: pointer;
+  border: none;
+}
+
+.customizeCardForm__rangeSlider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #5b35d5;
+  cursor: pointer;
+  border: none;
+}
+
+.customizeCardForm__fieldGroup {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.customizeCardForm__label {
+  font-size: 14px;
+  color: #000;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.customizeCardForm__required {
+  color: #da2a8f;
+  margin-left: 2px;
+}
+
+.customizeCardForm__inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.customizeCardForm__input {
+  padding: 12px 15px;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #333;
+  background-color: #f9f5e3;
+  border: 1px solid #e1ded0;
+
+  width: 100%;
+}
+
+.customizeCardForm__input::placeholder {
+  color: #a0a0a0;
+}
+
+.customizeCardForm__validationIcon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.customizeCardForm__validationIcon img {
+  width: 20px;
+  height: 20px;
+}
+
+.customizeCardForm__error {
+  color: #e53e3e;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.customizeCardForm__submitButton {
+  background-color: #4263eb;
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 30px;
+  align-self: flex-end;
+  min-width: 150px;
+}
+
+.customizeCardForm__submitButton:hover {
+  background-color: #3354d1;
+}
+
+.spinnerOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  backdrop-filter: blur(1px);
+}
+
+/* Адаптивность */
+@media (max-width: 800px) {
+  .customizeCardForm__topSection {
+    display: block;
+  }
+
+  .customizeCardForm__grid {
+    display: block;
+  }
+}

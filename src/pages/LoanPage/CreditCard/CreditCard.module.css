@@ -71,3 +71,17 @@
   transform: rotate(15deg);
   transition: transform 0.3s ease-in-out;
 }
+
+/* Адаптивность */
+@media (max-width: 800px) {
+  .cardPromo {
+    display: block;
+  }
+
+  .cardPromo__imageColumn img {
+    margin: 0 auto;
+    display: block;
+    padding-top: 20px;
+    border-radius: 15px;
+  }
+}

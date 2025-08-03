@@ -1,4 +1,3 @@
-import React from "react";
 import Accordion from "../../UI/Accordion/Accordion";
 import { groupedFaqData } from "../../../data/faqData";
 const FaqTab = () => {
