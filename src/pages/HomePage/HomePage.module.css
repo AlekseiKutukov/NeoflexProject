@@ -91,11 +91,11 @@
 }
 
 .features__list li::before {
-  content: '';
+  content: "";
   display: block;
   width: 24px;
   height: 24px;
-  background-image: url('./../../assets/icons/bx_bxs-check-circle.svg');
+  background-image: url("./../../assets/icons/bx_bxs-check-circle.svg");
   background-repeat: no-repeat;
   background-position: center;
   margin-right: 16px;
@@ -119,38 +119,6 @@
   font-size: 16px;
   color: #1c1c1e;
   margin: 8px 0 48px 0;
-}
-
-.support {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-}
-
-.support__title {
-  font-family: Ubuntu;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 147%;
-  letter-spacing: 2%;
-  color: #eb801d;
-}
-
-.support__newsletterText {
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 120%;
-  letter-spacing: 2%;
-}
-
-.support__newsletterNews {
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 147%;
-  letter-spacing: 2%;
-  margin-bottom: 62px;
 }
 
 @media (max-width: 1330px) {

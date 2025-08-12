@@ -1,0 +1,37 @@
+.cashbackFlex__item {
+  padding: 32px;
+  border-radius: 28px;
+}
+.cashbackFlex__title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 147%;
+}
+
+.cashbackFlex__description {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  color: #434343e5;
+}
+
+.cashbackFlex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.cashbackFlex > .cashbackFlex__item {
+  flex: 1 1 342px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 2px 4px 0px #00000033;
+  gap: 22px;
+}
+
+.cashbackFlex__item:nth-child(odd) {
+  background-color: #eaecee;
+}
+.cashbackFlex__item:nth-child(even) {
+  background-color: #88b3b899;
+}
