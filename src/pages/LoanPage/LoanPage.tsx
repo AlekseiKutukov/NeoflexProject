@@ -6,6 +6,8 @@ import FaqTab from "../../components/LoanPageTabs/FaqTab/FaqTab";
 import RatesTab from "../../components/LoanPageTabs/RatesTab/RatesTab";
 import CustomizeCardForm from "../../components/Form/CustomizeCardForm/CustomizeCardForm";
 import HowGetCard from "../../components/HowGetCard/HowGetCard";
+import LoanOffers from "../../components/LoanOffers/LoanOffers";
+import PreliminaryDecision from "../../components/PreliminaryDecision/PreliminaryDecision";
 import styles from "./LoanPage.module.css";
 
 const LoanPage = () => {
@@ -71,6 +73,8 @@ const LoanPage = () => {
       </section>
       <HowGetCard />
       <CustomizeCardForm ref={applicationFormRef} />
+      <LoanOffers />
+      <PreliminaryDecision />
     </div>
   );
 };

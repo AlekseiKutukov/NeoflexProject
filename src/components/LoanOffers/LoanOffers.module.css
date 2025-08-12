@@ -1,0 +1,57 @@
+.loanOffersList {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+
+.loanOffer {
+  max-width: 295px;
+  background-color: #fff;
+  border-radius: 28px;
+  padding: 32px;
+  text-align: center;
+  box-shadow: 0px 2px 4px 0px #00000033;
+  box-shadow: 0px 0px 8px 0px #00000014;
+  border: 2px solid transparent;
+}
+
+.loanOffer:hover {
+  border: 2px solid #003cff;
+}
+
+.loanOffer__details {
+  text-align: center;
+}
+
+.loanOffer__detailItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #1c1c1e;
+  margin-bottom: 14px;
+}
+
+.loanOffer__icon {
+  width: 16px;
+  height: 16px;
+}
+.loanOffer__button {
+  width: 148px;
+  height: 48px;
+  border: none;
+  border-radius: 8px;
+  background-color: #003cff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 76px;
+}
+
+.loanOffer__imageContainer {
+  margin-bottom: 32px;
+}

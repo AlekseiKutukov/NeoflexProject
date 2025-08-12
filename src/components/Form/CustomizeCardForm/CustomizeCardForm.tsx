@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { useApplicationStore } from "../../../store/applicationStore";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import type { FormikErrors, FormikHelpers } from "formik";
 import Spinner from "../../UI/Spinner/Spinner";
 import CheckIcon from "../../../assets/icons/CheckIcon.svg";
 import CrossIcon from "../../../assets/icons/CrossIcon.svg";
 import { forwardRef } from "react";
-import type { Ref } from "react";
+import type { Ref, ChangeEvent } from "react";
 import styles from "./CustomizeCardForm.module.css";
 
 interface CustomFieldProps {
@@ -18,6 +19,8 @@ interface CustomFieldProps {
   maxLength?: number;
   min?: string | number;
   max?: string | number;
+  onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
+  value?: string;
 }
 
 const CustomInput: React.FC<
@@ -76,7 +79,17 @@ const CustomInput: React.FC<
 
 const CustomSelect: React.FC<
   CustomFieldProps & { hasError: boolean; isTouched: boolean; isValid: boolean }
-> = ({ label, name, options = [], required, hasError, isTouched, isValid }) => {
+> = ({
+  label,
+  name,
+  options = [],
+  required,
+  hasError,
+  isTouched,
+  isValid,
+  onChange,
+  value,
+}) => {
   return (
     <div className={styles.customizeCardForm__fieldGroup}>
       <label htmlFor={name} className={styles.customizeCardForm__label}>
@@ -90,6 +103,8 @@ const CustomSelect: React.FC<
           name={name}
           as="select"
           className={`${styles.customizeCardForm__input} ${styles.customizeCardForm__select} ${hasError && isTouched ? styles.customizeCardForm__inputError : ""}`}
+          onChange={onChange}
+          value={value}
         >
           {options.map((option) => (
             <option key={option.value} value={option.value}>
@@ -125,7 +140,8 @@ interface FormValues {
   passportNumber: string;
 }
 
-const CustomizeCardForm = forwardRef((props, ref: Ref<HTMLDivElement>) => {
+const CustomizeCardForm = forwardRef((_props, ref: Ref<HTMLDivElement>) => {
+  const { amount, term, setAmount, setTerm } = useApplicationStore();
   const [isLoading, setIsLoading] = useState(false);
 
   const initialValues: FormValues = {
@@ -216,6 +232,8 @@ const CustomizeCardForm = forwardRef((props, ref: Ref<HTMLDivElement>) => {
   ) => {
     setIsLoading(true);
     try {
+      setAmount(values.amount);
+      setTerm(values.term);
       await new Promise((resolve) => setTimeout(resolve, 3000));
       // console.log("Form data to send:", values);
       alert("Form submitted successfully!");
@@ -262,12 +280,9 @@ const CustomizeCardForm = forwardRef((props, ref: Ref<HTMLDivElement>) => {
                       type="text"
                       name="amount"
                       value={values.amount}
-                      onChange={(e) => {
-                        const val = Number(e.target.value);
-                        if (!isNaN(val)) {
-                          setFieldValue("amount", val);
-                        }
-                      }}
+                      onChange={(e) =>
+                        setFieldValue("amount", Number(e.target.value))
+                      }
                       onBlur={() =>
                         setFieldValue(
                           "amount",
@@ -364,11 +379,13 @@ const CustomizeCardForm = forwardRef((props, ref: Ref<HTMLDivElement>) => {
                   name="term"
                   required
                   options={[
-                    { value: "6 month", label: "6 month" },
-                    { value: "12 month", label: "12 month" },
-                    { value: "18 month", label: "18 month" },
-                    { value: "24 month", label: "24 month" },
+                    { value: "6 month", label: "6 months" },
+                    { value: "12 month", label: "12 months" },
+                    { value: "18 month", label: "18 months" },
+                    { value: "24 month", label: "24 months" },
                   ]}
+                  onChange={(e) => setFieldValue("term", e.target.value)}
+                  value={values.term}
                   hasError={!!(touched.term && errors.term)}
                   isTouched={!!touched.term}
                   isValid={!!(touched.term && !errors.term)}
