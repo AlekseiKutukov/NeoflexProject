@@ -21,6 +21,10 @@ const LoanPage = () => {
     setActiveTab(tab);
   };
 
+  const handleFormSuccess = () => {
+    setShowOffers(true);
+  };
+
   const applicationFormRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -84,7 +88,10 @@ const LoanPage = () => {
       {showOffers ? (
         <LoanOffers ref={applicationFormRef} />
       ) : (
-        <CustomizeCardForm ref={applicationFormRef} />
+        <CustomizeCardForm
+          onSuccess={handleFormSuccess}
+          ref={applicationFormRef}
+        />
       )}
 
       {/* <PreliminaryDecision /> */}
