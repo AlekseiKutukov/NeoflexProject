@@ -5,11 +5,16 @@ import SurpriseImage from "./../../assets/images/SurpriseImage.svg";
 import CheckIcon from "./../../assets/icons/CheckIcon.svg";
 import CrossIcon from "./../../assets/icons/CrossIcon.svg";
 import { type LoanOffer as LoanOfferType } from "../../store/applicationStore";
+
+interface LoanOffersProps {
+  onSuccess: () => void;
+}
 interface LoanOfferProps {
   offer: LoanOfferType;
+  onSuccess: () => void;
 }
 
-const LoanOffer: React.FC<LoanOfferProps> = ({ offer }) => {
+const LoanOffer: React.FC<LoanOfferProps> = ({ offer, onSuccess }) => {
   const handleSelect = async () => {
     const payload = {
       ...offer,
@@ -27,13 +32,11 @@ const LoanOffer: React.FC<LoanOfferProps> = ({ offer }) => {
       if (!res.ok) {
         throw new Error(`Ошибка: ${res.status}`);
       }
-
-      const data = await res.json();
-      console.log("Ответ сервера:", data);
-      alert("Заявка отправлена!");
+      onSuccess();
+      // alert("Заявка отправлена!");
     } catch (err) {
       console.error("Ошибка при отправке:", err);
-      alert("Ошибка при отправке данных");
+      // alert("Ошибка при отправке данных");
     }
   };
 
@@ -78,18 +81,20 @@ const LoanOffer: React.FC<LoanOfferProps> = ({ offer }) => {
   );
 };
 
-const LoanOffers = forwardRef((_props, ref: Ref<HTMLDivElement>) => {
-  const { offers } = useApplicationStore();
+const LoanOffers = forwardRef<HTMLDivElement, LoanOffersProps>(
+  ({ onSuccess }, ref: Ref<HTMLDivElement>) => {
+    const { offers } = useApplicationStore();
 
-  const sortedOffers = [...offers].sort((a, b) => b.rate - a.rate);
+    const sortedOffers = [...offers].sort((a, b) => b.rate - a.rate);
 
-  return (
-    <div ref={ref} className={styles.loanOffersList}>
-      {sortedOffers.map((offer, index) => (
-        <LoanOffer key={index} offer={offer} />
-      ))}
-    </div>
-  );
-});
+    return (
+      <div ref={ref} className={styles.loanOffersList}>
+        {sortedOffers.map((offer, index) => (
+          <LoanOffer key={index} offer={offer} onSuccess={onSuccess} />
+        ))}
+      </div>
+    );
+  }
+);
 
 export default LoanOffers;

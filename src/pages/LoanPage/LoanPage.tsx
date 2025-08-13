@@ -16,6 +16,7 @@ const LoanPage = () => {
 
   const [activeTab, setActiveTab] = useState<TabName>("aboutCard"); // Состояние для активной вкладки
   const [showOffers, setShowOffers] = useState(false);
+  const [showDecision, setShowDecision] = useState(false);
 
   const handleTabClick = (tab: TabName) => {
     setActiveTab(tab);
@@ -23,6 +24,11 @@ const LoanPage = () => {
 
   const handleFormSuccess = () => {
     setShowOffers(true);
+  };
+
+  const handleOfferSelect = () => {
+    setShowOffers(false);
+    setShowDecision(true);
   };
 
   const applicationFormRef = useRef<HTMLDivElement>(null);
@@ -85,16 +91,16 @@ const LoanPage = () => {
       </section>
       <HowGetCard />
 
-      {showOffers ? (
-        <LoanOffers ref={applicationFormRef} />
+      {showOffers && !showDecision ? (
+        <LoanOffers onSuccess={handleOfferSelect} ref={applicationFormRef} />
+      ) : showDecision ? (
+        <PreliminaryDecision />
       ) : (
         <CustomizeCardForm
           onSuccess={handleFormSuccess}
           ref={applicationFormRef}
         />
       )}
-
-      {/* <PreliminaryDecision /> */}
     </div>
   );
 };
