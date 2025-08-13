@@ -146,7 +146,7 @@ interface FormValues {
 
 const CustomizeCardForm = forwardRef(
   ({ onSuccess }: CustomizeCardFormProps, ref: Ref<HTMLDivElement>) => {
-    const { amount, term, setAmount, setTerm } = useApplicationStore();
+    // const { setOffers } = useApplicationStore();
     const [isLoading, setIsLoading] = useState(false);
 
     const initialValues: FormValues = {
@@ -237,15 +237,43 @@ const CustomizeCardForm = forwardRef(
     ) => {
       setIsLoading(true);
       try {
-        setAmount(values.amount);
-        setTerm(values.term);
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        const payload = {
+          amount: values.amount,
+          term: parseInt(values.term, 10),
+          firstName: values.firstName,
+          lastName: values.lastName,
+          middleName: values.middleName || null,
+          email: values.email,
+          birthdate: values.birthdate,
+          passportSeries: values.passportSeries,
+          passportNumber: values.passportNumber,
+        };
+
+        const res = await fetch("http://localhost:8080/application", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (!res.ok) {
+          const errText = await res.text();
+          throw new Error(`Ошибка prescoring: ${res.status} — ${errText}`);
+        }
+
+        const data = await res.json();
+        console.log("Prescoring response:", data);
+
+        useApplicationStore.setState({
+          offers: data,
+        });
+
         onSuccess();
-        // console.log("Form data to send:", values);
-        // alert("Form submitted successfully!");
       } catch (error) {
-        // console.error("Form submission error:", error);
+        console.error("Form submission error:", error);
         alert("Error submitting form.");
+        console.log("data ", values.middleName);
       } finally {
         setIsLoading(false);
         setSubmitting(false);
