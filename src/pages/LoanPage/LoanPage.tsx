@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import CreditCard from "./CreditCard/CreditCard";
 import AboutCardTab from "../../components/LoanPageTabs/AboutCardTab/AboutCardTab";
 import CashbackTab from "../../components/LoanPageTabs/CashbackTab/CashbackTab";
@@ -15,12 +15,20 @@ const LoanPage = () => {
   type TabName = "aboutCard" | "rates" | "cashback" | "faq";
 
   const [activeTab, setActiveTab] = useState<TabName>("aboutCard"); // Состояние для активной вкладки
+  const [showOffers, setShowOffers] = useState(false);
 
   const handleTabClick = (tab: TabName) => {
     setActiveTab(tab);
   };
 
   const applicationFormRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const storedState = localStorage.getItem("loan-application-state");
+    if (storedState) {
+      setShowOffers(true);
+    }
+  }, []);
 
   return (
     <div className={styles.loanPage}>
@@ -72,9 +80,14 @@ const LoanPage = () => {
         </div>
       </section>
       <HowGetCard />
-      <CustomizeCardForm ref={applicationFormRef} />
-      <LoanOffers />
-      <PreliminaryDecision />
+
+      {showOffers ? (
+        <LoanOffers ref={applicationFormRef} />
+      ) : (
+        <CustomizeCardForm ref={applicationFormRef} />
+      )}
+
+      {/* <PreliminaryDecision /> */}
     </div>
   );
 };

@@ -39,7 +39,7 @@ Module 3
 Module 4
 
 1. Установлен Zustand, zustand/middleware
-   1.1. Выводится 4 кредитных предложения, сохранены в localStore и синхронизированы с store
+   1.1. Выводится 4 кредитных предложения, сохранены в localStore и синхронизированы с store,После выбора одного из предложений идёт отправка данных на application/apply
 
 - Основныe breakpoint:
   @media (max-width: 1330px)

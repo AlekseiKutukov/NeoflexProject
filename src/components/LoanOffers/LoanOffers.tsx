@@ -1,3 +1,4 @@
+import { forwardRef, type Ref } from "react";
 import { useApplicationStore } from "../../store/applicationStore";
 import styles from "./LoanOffers.module.css";
 import SurpriseImage from "./../../assets/images/SurpriseImage.svg";
@@ -74,7 +75,7 @@ const LoanOffer: React.FC<LoanOfferProps> = ({
   );
 };
 
-const LoanOffers = () => {
+const LoanOffers = forwardRef((_props, ref: Ref<HTMLDivElement>) => {
   const offers = [
     {
       rate: 15,
@@ -99,12 +100,12 @@ const LoanOffers = () => {
   ];
 
   return (
-    <div className={styles.loanOffersList}>
+    <div ref={ref} className={styles.loanOffersList}>
       {offers.map((offer, index) => (
         <LoanOffer key={index} {...offer} />
       ))}
     </div>
   );
-};
+});
 
 export default LoanOffers;
