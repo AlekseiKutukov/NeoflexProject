@@ -7,7 +7,7 @@ import RatesTab from "../../components/LoanPageTabs/RatesTab/RatesTab";
 import CustomizeCardForm from "../../components/Form/CustomizeCardForm/CustomizeCardForm";
 import HowGetCard from "../../components/HowGetCard/HowGetCard";
 import LoanOffers from "../../components/LoanOffers/LoanOffers";
-import PreliminaryDecision from "../../components/PreliminaryDecision/PreliminaryDecision";
+import AfterStep from "../../components/AfterStep/AfterStep";
 import styles from "./LoanPage.module.css";
 
 const LoanPage = () => {
@@ -94,7 +94,14 @@ const LoanPage = () => {
       {showOffers && !showDecision ? (
         <LoanOffers onSuccess={handleOfferSelect} ref={applicationFormRef} />
       ) : showDecision ? (
-        <PreliminaryDecision />
+        <div className={styles.afterStep}>
+          <AfterStep
+            title={"The preliminary decision has been sent to your email."}
+            text={
+              "In the letter you can get acquainted with the preliminary decision on the credit card."
+            }
+          />
+        </div>
       ) : (
         <CustomizeCardForm
           onSuccess={handleFormSuccess}

@@ -163,7 +163,7 @@ const ScoringPage: React.FC<ScoringFormProps> = ({ onSuccess }) => {
         onSubmit={handleSubmit}
         validateOnBlur={true}
       >
-        {({ errors, touched }) => (
+        {() => (
           <Form className={styles.scoringForm}>
             <div className={styles.scoringForm__header}>
               <h2 className={styles.scoringForm__title}>
