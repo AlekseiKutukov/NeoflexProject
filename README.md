@@ -40,6 +40,8 @@ Module 4
 
 1. Установлен Zustand, zustand/middleware
    1.1. Выводится 4 кредитных предложения, сохранены в localStore и синхронизированы с store,После выбора одного из предложений идёт отправка данных на application/apply
+2.
+3. Добавлена страница loan/{applicationId} с формой Scoring
 
 - Основныe breakpoint:
   @media (max-width: 1330px)

@@ -1,8 +1,17 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-//https://alekseikutukov.github.io/NeoflexProject/
+// https://alekseikutukov.github.io/NeoflexProject/
 export default defineConfig({
   plugins: [react()],
-  base: '/NeoflexProject/',
+  base: "/NeoflexProject/",
+  server: {
+    proxy: {
+      "/application": {
+        target: "http://localhost:8080",
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 });

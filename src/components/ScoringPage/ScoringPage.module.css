@@ -1,0 +1,145 @@
+.scoringFormContainer {
+  padding: 32px;
+  background-color: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0px 2px 4px 0px #00000033;
+}
+
+.scoringForm__header {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 40px;
+}
+
+.scoringForm__title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-right: 80px;
+}
+
+.scoringForm__info {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.scoringForm__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  gap: 16px;
+}
+
+.scoringForm__gender {
+  grid-area: 1 / 1 / 2 / 3;
+}
+
+.scoringForm__marital {
+  grid-area: 1 / 3 / 2 / 5;
+}
+
+.scoringForm__dependents {
+  grid-area: 1 / 5 / 2 / 7;
+}
+
+.scoringForm__passport {
+  grid-area: 2 / 1 / 3 / 4;
+}
+
+.scoringForm__division {
+  grid-area: 2 / 4 / 3 / 7;
+}
+
+.scoringForm__gridTwo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  gap: 16px;
+}
+
+.scoringForm__sectionTitle {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 32px 0;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1a202c;
+  margin-bottom: 8px;
+}
+
+.required {
+  color: red;
+  margin-left: 4px;
+}
+
+.input,
+.select {
+  background-color: #f9f5e3;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #80808033;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #808080;
+  font-size: 14px;
+  font-weight: 400;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.input:focus,
+.select:focus {
+  outline: none;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.submitButton {
+  padding: 15px 45px;
+  background-color: #003cff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+.spinnerOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.select option[disabled] {
+  display: none;
+}

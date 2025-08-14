@@ -4,6 +4,7 @@ import Footer from "./layouts/Footer/Footer";
 import HomePage from "./pages/HomePage/HomePage";
 import LoanPage from "./pages/LoanPage/LoanPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import Loan from "./pages/Loan/Loan";
 import "./styles/base.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/loan-page" element={<LoanPage />} />
+              <Route path="loan/:applicationId" element={<Loan />} />
               {/* NotFound должен быть поcледним */}
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
