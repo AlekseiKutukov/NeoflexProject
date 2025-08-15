@@ -1,0 +1,155 @@
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import styles from "./Document.module.css";
+import Table from "../../components/Table/Table";
+import Checkbox from "../../components/Checkbox/Checkbox";
+import Spinner from "../../components/UI/Spinner/Spinner";
+import AfterStep from "../../components/AfterStep/AfterStep";
+
+interface Payment {
+  number: number;
+  date: string;
+  totalPayment: number;
+  interestPayment: number;
+  debtPayment: number;
+  remainingDebt: number;
+}
+
+interface Credit {
+  amount: number;
+  term: number;
+  monthlyPayment: number;
+  rate: number;
+  psk: number;
+  isInsuranceEnabled: boolean;
+  isSalaryClient: boolean;
+  paymentSchedule: Payment[];
+}
+
+interface ApplicationData {
+  id: number;
+  client: object;
+  credit: Credit;
+  status: string;
+  creationDate: string;
+  signDate: string | null;
+  sesCode: string | null;
+  statusHistory: object[];
+}
+
+const API_BASE =
+  import.meta.env.MODE === "development"
+    ? ""
+    : "https://alekseikutukov.github.io/NeoflexProject/";
+
+const Document: React.FC = () => {
+  const { applicationId } = useParams<{ applicationId: string }>();
+  const [payments, setPayments] = useState<Payment[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isAgreed, setIsAgreed] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchPaymentSchedule = async () => {
+      try {
+        const res = await fetch(
+          `${API_BASE}/admin/application/${applicationId}`
+        );
+        if (!res.ok) {
+          throw new Error("Failed to fetch payment schedule.");
+        }
+
+        const data: ApplicationData = await res.json();
+
+        const paymentSchedule = data?.credit?.paymentSchedule;
+
+        if (paymentSchedule && Array.isArray(paymentSchedule)) {
+          setPayments(paymentSchedule);
+        } else {
+          throw new Error("Invalid payment schedule data received.");
+        }
+      } catch (err) {
+        setError("Failed to load payment schedule.");
+        console.error(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchPaymentSchedule();
+  }, [applicationId]);
+
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsAgreed(e.target.checked);
+  };
+
+  const handleSend = async () => {
+    setIsLoading(true);
+    try {
+      const res = await fetch(`${API_BASE}/document/${applicationId}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ isAgreed: true }),
+      });
+      if (!res.ok) {
+        throw new Error("Failed to send agreement.");
+      }
+      setIsSubmitted(true);
+    } catch (err) {
+      setError("Failed to send consent.");
+      console.error(err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <div className={styles.spinnerContainer}>
+        <Spinner />
+      </div>
+    );
+  }
+
+  if (isSubmitted) {
+    return (
+      <AfterStep
+        title={"Documents are formed"}
+        text={"Documents for signing will be sent to your email"}
+      />
+    );
+  }
+
+  if (error) {
+    return <AfterStep title={"Error"} text={error} />;
+  }
+
+  return (
+    <section className={styles.document__container}>
+      <div className={styles.document__header}>
+        <h2 className={styles.document__title}>Payment Schedule</h2>
+        <div className={styles.document__step}>Step 3 of 5</div>
+      </div>
+      <Table data={payments} />
+      <div className={styles.document__footer}>
+        <button className={styles.document__denyButton}>Deny</button>
+        <div className={styles.document__agreementContainer}>
+          <Checkbox
+            checked={isAgreed}
+            onChange={handleCheckboxChange}
+            label={"I agree with the payment schedule"}
+          />
+          <button
+            className={styles.document__sendButton}
+            onClick={handleSend}
+            disabled={!isAgreed}
+          >
+            Send
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Document;

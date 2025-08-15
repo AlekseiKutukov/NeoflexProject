@@ -8,10 +8,10 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: "Credit card", path: "/loan-page" },
-  { label: "Product", path: "/ss" },
-  { label: "Account", path: "/dd" },
-  { label: "Resource", path: "/aa" },
+  { label: "Credit card", path: "/loan" },
+  { label: "Product", path: "/product" },
+  { label: "Account", path: "/account" },
+  { label: "Resource", path: "/resource" },
 ];
 
 const NavigationMenu = () => {

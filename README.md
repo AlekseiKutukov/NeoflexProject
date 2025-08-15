@@ -45,6 +45,10 @@ Module 4
    -пользователь может проходить этапы только по своей заявке (applicationId)
    -
 3. Добавлена страница loan/{applicationId} с формой Scoring
+4.
+
+ЛОГИКА ПРИЛОЖЕНИЯ:
+дошел до 6 пункта
 
 - Основныe breakpoint:
   @media (max-width: 1330px)

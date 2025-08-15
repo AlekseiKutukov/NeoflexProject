@@ -1,0 +1,65 @@
+.document__container {
+  box-shadow: 0px 2px 4px 0px #00000033;
+  box-shadow: 0px 0px 8px 0px #00000014;
+  background: #fff;
+  border-radius: 28px;
+  padding: 32px;
+  margin-top: 24px;
+}
+
+.document__header {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 76px;
+}
+
+.document__title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-right: 80px;
+}
+
+.document__step {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.document__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.document__denyButton {
+  background-color: #d93737cc;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.document__agreementContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.document__sendButton {
+  background-color: #003cff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.document__sendButton:disabled {
+  background-color: #c0c0c0;
+  cursor: not-allowed;
+}

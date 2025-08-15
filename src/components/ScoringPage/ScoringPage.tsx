@@ -11,18 +11,22 @@ const API_BASE =
     ? "" // пусто, пойдёт через прокси
     : "https://alekseikutukov.github.io/NeoflexProject/"; // адрес бэка для GitHub Pages
 
+interface EmploymentValues {
+  employmentStatus: string;
+  employerINN: string;
+  salary: string;
+  position: string;
+  workExperienceTotal: string;
+  workExperienceCurrent: string;
+}
+
 interface ScoringFormValues {
   gender: string;
   maritalStatus: string;
   dependentAmount: number;
   passportIssueDate: string;
   passportIssueBranch: string;
-  employmentStatus: string;
-  employerINN: string;
-  salary: "";
-  position: string;
-  workExperienceTotal: string;
-  workExperienceCurrent: string;
+  employment: EmploymentValues;
 }
 
 interface ScoringFormProps {
@@ -33,20 +37,36 @@ const ScoringPage: React.FC<ScoringFormProps> = ({ onSuccess }) => {
   const { applicationId } = useParams<{ applicationId: string }>();
   const [isLoading, setIsLoading] = useState(false);
 
-  const initialValues: ScoringFormValues = {
+  const localStorageData = localStorage.getItem("loan-application-state");
+  let accountIdFromLocalStorage = "";
+
+  if (localStorageData) {
+    try {
+      const parsedData = JSON.parse(localStorageData);
+      const offers = parsedData?.state?.offers;
+      if (offers && offers.length > 0) {
+        accountIdFromLocalStorage = String(offers[0].applicationId);
+      }
+    } catch (e) {
+      console.error("Ошибка парсинга данных из localStorage", e);
+    }
+  }
+
+  const initialValues = {
     gender: "",
     maritalStatus: "",
     dependentAmount: -1,
     passportIssueDate: "",
     passportIssueBranch: "",
-    employmentStatus: "",
-    employerINN: "",
-    salary: "",
-    position: "",
-    workExperienceTotal: "",
-    workExperienceCurrent: "",
+    employment: {
+      employmentStatus: "",
+      employerINN: "",
+      salary: "",
+      position: "",
+      workExperienceTotal: "",
+      workExperienceCurrent: "",
+    },
   };
-
   const validateForm = (values: ScoringFormValues) => {
     const errors: FormikErrors<ScoringFormValues> = {};
     const today = new Date();
@@ -54,7 +74,7 @@ const ScoringPage: React.FC<ScoringFormProps> = ({ onSuccess }) => {
     if (!values.gender) errors.gender = "Please select gender";
     if (!values.maritalStatus)
       errors.maritalStatus = "Please select your marital status";
-    if (values.dependentAmount == null) {
+    if (values.dependentAmount == null || values.dependentAmount < 0) {
       errors.dependentAmount = "Please select the number of children";
     }
 
@@ -70,40 +90,57 @@ const ScoringPage: React.FC<ScoringFormProps> = ({ onSuccess }) => {
       errors.passportIssueBranch = "Incorrect format (eg 123-456)";
     }
 
-    if (!values.employmentStatus)
-      errors.employmentStatus = "Please select your employment status";
+    const employmentErrors: FormikErrors<EmploymentValues> = {};
 
-    if (!values.employerINN) {
-      errors.employerINN = "INN is mandatory";
-    } else if (!/^\d{12}$/.test(values.employerINN)) {
-      errors.employerINN = "The TIN must consist of 12 digits.";
+    if (!values.employment.employmentStatus) {
+      employmentErrors.employmentStatus =
+        "Please select your employment status";
     }
 
-    if (!values.salary || values.salary <= 0) {
-      errors.salary = "Salary must be positive";
+    if (!values.employment.employerINN) {
+      employmentErrors.employerINN = "INN is mandatory";
+    } else if (!/^\d{12}$/.test(values.employment.employerINN)) {
+      employmentErrors.employerINN = "The TIN must consist of 12 digits.";
     }
 
-    if (!values.position) errors.position = "Please select a position";
-
-    if (!values.workExperienceTotal) {
-      errors.workExperienceTotal = "Please enter your total length of service";
-    } else if (!/^\d+$/.test(values.workExperienceCurrent)) {
-      errors.workExperienceCurrent = "Please enter only numbers";
-    } else if (values.workExperienceTotal.length > 2) {
-      errors.workExperienceTotal = "Experience cannot exceed 99 years";
-    } else if (Number(values.workExperienceTotal) > 99) {
-      errors.workExperienceTotal = "Experience cannot exceed 99 years";
+    if (!values.employment.salary) {
+      employmentErrors.salary = "Salary is required";
+    } else if (!/^\d+$/.test(values.employment.salary)) {
+      employmentErrors.salary = "Salary must contain only digits";
+    } else if (+values.employment.salary <= 0) {
+      employmentErrors.salary = "Salary must be positive";
     }
 
-    if (!values.workExperienceCurrent) {
-      errors.workExperienceCurrent =
-        "Please enter your current length of service";
-    } else if (!/^\d+$/.test(values.workExperienceCurrent)) {
-      errors.workExperienceCurrent = "Please enter only numbers";
-    } else if (values.workExperienceCurrent.length > 2) {
-      errors.workExperienceCurrent = "Experience cannot exceed 99 years";
-    } else if (Number(values.workExperienceCurrent) > 99) {
-      errors.workExperienceCurrent = "Experience cannot exceed 99 years";
+    if (!values.employment.position) {
+      employmentErrors.position = "Please select a position";
+    }
+
+    if (
+      !values.employment.workExperienceTotal ||
+      +values.employment.workExperienceTotal < 0 ||
+      +values.employment.workExperienceTotal > 99
+    ) {
+      employmentErrors.workExperienceTotal =
+        "Please enter your total length of service (0-99 years)";
+    }
+
+    if (
+      !values.employment.workExperienceCurrent ||
+      +values.employment.workExperienceCurrent < 0 ||
+      +values.employment.workExperienceCurrent > 99
+    ) {
+      employmentErrors.workExperienceCurrent =
+        "Please enter your current length of service (0-99 years)";
+    } else if (
+      values.employment.workExperienceCurrent >
+      values.employment.workExperienceTotal
+    ) {
+      employmentErrors.workExperienceCurrent =
+        "Current experience cannot be greater than total experience";
+    }
+
+    if (Object.keys(employmentErrors).length > 0) {
+      errors.employment = employmentErrors;
     }
 
     return errors;
@@ -118,16 +155,36 @@ const ScoringPage: React.FC<ScoringFormProps> = ({ onSuccess }) => {
       const payload = {
         gender: values.gender,
         maritalStatus: values.maritalStatus,
-        dependentAmount: values.dependentAmount,
+        dependentAmount: +values.dependentAmount,
         passportIssueDate: values.passportIssueDate,
         passportIssueBranch: values.passportIssueBranch,
-        employmentStatus: values.employmentStatus,
-        employerINN: values.employerINN,
-        salary: values.salary,
-        position: values.position,
-        workExperienceTotal: values.workExperienceTotal,
-        workExperienceCurrent: values.workExperienceCurrent,
+        employment: {
+          employmentStatus: values.employment.employmentStatus,
+          employerINN: values.employment.employerINN,
+          salary: +values.employment.salary,
+          position: values.employment.position,
+          workExperienceTotal: values.employment.workExperienceTotal,
+          workExperienceCurrent: values.employment.workExperienceCurrent,
+        },
+        account: accountIdFromLocalStorage,
       };
+
+      // const payloadFree = {
+      //   gender: "MALE",
+      //   maritalStatus: "SINGLE",
+      //   dependentAmount: 1,
+      //   passportIssueDate: "2025-08-15",
+      //   passportIssueBranch: "123-456",
+      //   employment: {
+      //     employmentStatus: "EMPLOYED",
+      //     employerINN: "123456789012",
+      //     salary: 100000,
+      //     position: "WORKER",
+      //     workExperienceTotal: 15,
+      //     workExperienceCurrent: 4,
+      //   },
+      //   account: "11223344556677889900",
+      // };
 
       const res = await fetch(
         `${API_BASE}/application/registration/${applicationId}`,
@@ -145,6 +202,7 @@ const ScoringPage: React.FC<ScoringFormProps> = ({ onSuccess }) => {
         throw new Error(`Ошибка скоринга: ${res.status} — ${errText}`);
       }
 
+      console.log("payload ", payload);
       onSuccess();
     } catch (error) {
       console.error("Scoring form submission error:", error);
@@ -289,13 +347,16 @@ const ScoringPage: React.FC<ScoringFormProps> = ({ onSuccess }) => {
 
             <div className={styles.scoringForm__gridTwo}>
               <div className={styles.fieldGroup}>
-                <label className={styles.label} htmlFor="employmentStatus">
+                <label
+                  className={styles.label}
+                  htmlFor="employment.employmentStatus"
+                >
                   Your employment status
                   <span className={styles.required}>*</span>
                 </label>
                 <Field
                   as="select"
-                  name="employmentStatus"
+                  name="employment.employmentStatus"
                   className={styles.select}
                 >
                   <option value="" disabled></option>
@@ -305,51 +366,58 @@ const ScoringPage: React.FC<ScoringFormProps> = ({ onSuccess }) => {
                   <option value="BUSINESS_OWNER">Busines owner</option>
                 </Field>
                 <ErrorMessage
-                  name="employmentStatus"
+                  name="employment.employmentStatus"
                   component="div"
                   className={styles.error}
                 />
               </div>
 
               <div className={styles.fieldGroup}>
-                <label className={styles.label} htmlFor="employerINN">
+                <label
+                  className={styles.label}
+                  htmlFor="employment.employerINN"
+                >
                   Your employer INN<span className={styles.required}>*</span>
                 </label>
                 <Field
-                  name="employerINN"
+                  name="employment.employerINN"
                   type="text"
                   placeholder="000000000000"
                   className={styles.input}
                 />
                 <ErrorMessage
-                  name="employerINN"
+                  name="employment.employerINN"
                   component="div"
                   className={styles.error}
                 />
               </div>
 
               <div className={styles.fieldGroup}>
-                <label className={styles.label} htmlFor="salary">
+                <label className={styles.label} htmlFor="employment.salary">
                   Your salary<span className={styles.required}>*</span>
                 </label>
                 <Field
-                  name="salary"
+                  name="employment.salary"
                   type="text"
                   placeholder="For example 100 000"
                   className={styles.input}
                 />
                 <ErrorMessage
-                  name="salary"
+                  name="employment.salary"
                   component="div"
                   className={styles.error}
                 />
               </div>
 
               <div className={styles.fieldGroup}>
-                <label className={styles.label} htmlFor="position">
+                <label className={styles.label} htmlFor="employment.position">
                   Your position<span className={styles.required}>*</span>
                 </label>
-                <Field as="select" name="position" className={styles.select}>
+                <Field
+                  as="select"
+                  name="employment.position"
+                  className={styles.select}
+                >
                   <option value="" disabled></option>
                   <option value="WORKER">Worker</option>
                   <option value="MID_MANAGER">Mid manager</option>
@@ -357,45 +425,53 @@ const ScoringPage: React.FC<ScoringFormProps> = ({ onSuccess }) => {
                   <option value="OWNER">Owner</option>
                 </Field>
                 <ErrorMessage
-                  name="position"
+                  name="employment.position"
                   component="div"
                   className={styles.error}
                 />
               </div>
 
               <div className={styles.fieldGroup}>
-                <label className={styles.label} htmlFor="workExperienceTotal">
+                <label
+                  className={styles.label}
+                  htmlFor="employment.workExperienceTotal"
+                >
                   Your work experience total
                   <span className={styles.required}>*</span>
                 </label>
                 <Field
-                  name="workExperienceTotal"
-                  type="text"
-                  maxLength={2}
+                  name="employment.workExperienceTotal"
+                  type="number"
+                  min={0}
+                  max={99}
                   placeholder="For example 10"
                   className={styles.input}
                 />
                 <ErrorMessage
-                  name="workExperienceTotal"
+                  name="employment.workExperienceTotal"
                   component="div"
                   className={styles.error}
                 />
               </div>
 
               <div className={styles.fieldGroup}>
-                <label className={styles.label} htmlFor="workExperienceCurrent">
+                <label
+                  className={styles.label}
+                  htmlFor="employment.workExperienceCurrent"
+                >
                   Your work experience current
                   <span className={styles.required}>*</span>
                 </label>
                 <Field
-                  name="workExperienceCurrent"
-                  type="text"
-                  maxLength={2}
+                  name="employment.workExperienceCurrent"
+                  type="number"
+                  min={0}
+                  max={99}
                   placeholder="For example 2"
                   className={styles.input}
                 />
                 <ErrorMessage
-                  name="workExperienceCurrent"
+                  name="employment.workExperienceCurrent"
                   component="div"
                   className={styles.error}
                 />
