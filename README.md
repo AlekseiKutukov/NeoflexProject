@@ -45,7 +45,8 @@ Module 4
    -пользователь может проходить этапы только по своей заявке (applicationId)
    -
 3. Добавлена страница loan/{applicationId} с формой Scoring
-4.
+4. Добавлена страница loan/{applicationId}/document с таблицей
+5. Реализована сортировка столбцов таблицы
 
 ЛОГИКА ПРИЛОЖЕНИЯ:
 дошел до 6 пункта
@@ -54,3 +55,5 @@ Module 4
   @media (max-width: 1330px)
   @media (max-width: 920px)
   @media (max-width: 500px)
+
+нужно сделать кнопки отказа

@@ -113,10 +113,12 @@ const Document: React.FC = () => {
 
   if (isSubmitted) {
     return (
-      <AfterStep
-        title={"Documents are formed"}
-        text={"Documents for signing will be sent to your email"}
-      />
+      <div className={styles.container}>
+        <AfterStep
+          title={"Documents are formed"}
+          text={"Documents for signing will be sent to your email"}
+        />
+      </div>
     );
   }
 
