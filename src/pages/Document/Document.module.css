@@ -31,8 +31,7 @@
   margin-top: 24px;
 }
 
-.document__denyButton,
-.modalDenyButton {
+.document__denyButton {
   background-color: #d93737cc;
   color: white;
   border: none;
@@ -53,9 +52,7 @@ button:hover {
   gap: 16px;
 }
 
-.document__sendButton,
-.modalCancelButton,
-.modalGoHomeButton {
+.document__sendButton {
   background-color: #003cff;
   color: white;
   border: none;
@@ -64,9 +61,6 @@ button:hover {
   cursor: pointer;
   font-weight: 700;
   font-size: 16px;
-}
-.modalGoHomeButton {
-  float: right;
 }
 
 .document__sendButton:disabled {
@@ -80,40 +74,4 @@ button:hover {
   justify-content: center;
   align-items: center;
   height: 80vh;
-}
-
-.modalTitle {
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 147%;
-  color: #1c1c1e;
-}
-
-.modalText {
-  font-family: Ubuntu;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 147%;
-  color: #1a202c;
-  margin: 16px 0 32px 0;
-}
-
-.modalButtons {
-  display: flex;
-  justify-content: right;
-  gap: 32px;
-  width: 100%;
-}
-
-.modalDenyButton,
-.modalCancelButton,
-.modalGoHomeButton {
-  padding: 12px 24px;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  border: none;
-  color: #fff;
 }

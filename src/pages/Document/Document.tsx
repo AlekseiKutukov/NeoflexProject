@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom"; // Импортируем useNavigate
+import { useParams, useNavigate } from "react-router-dom";
 import styles from "./Document.module.css";
 import Table from "../../components/Table/Table";
 import Checkbox from "../../components/Checkbox/Checkbox";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import AfterStep from "../../components/AfterStep/AfterStep";
-import Modal from "../../components/Modal/Modal"; // Импортируем компонент модального окна
+import DenyApplicationModal from "../../components/DenyApplicationModal/DenyApplicationModal";
 
 interface Payment {
   number: number;
@@ -45,14 +45,12 @@ const API_BASE =
 
 const Document: React.FC = () => {
   const { applicationId } = useParams<{ applicationId: string }>();
-  const navigate = useNavigate(); // Используем хук для навигации
   const [payments, setPayments] = useState<Payment[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isAgreed, setIsAgreed] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isDenialConfirmed, setIsDenialConfirmed] = useState(false);
+  const [isDenyModalOpen, setIsDenyModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchPaymentSchedule = async () => {
@@ -107,23 +105,12 @@ const Document: React.FC = () => {
     }
   };
 
-  // Обработчики для модального окна
   const handleDenyClick = () => {
-    setIsModalOpen(true);
-    setIsDenialConfirmed(false); // Сброс состояния, чтобы показать первый этап модального окна
+    setIsDenyModalOpen(true);
   };
 
-  const handleDenyConfirm = () => {
-    setIsDenialConfirmed(true);
-  };
-
-  const handleModalClose = () => {
-    setIsModalOpen(false);
-    setIsDenialConfirmed(false);
-  };
-
-  const handleGoHome = () => {
-    navigate("/"); // Перенаправляем пользователя на главную страницу
+  const handleCloseDenyModal = () => {
+    setIsDenyModalOpen(false);
   };
 
   if (isLoading) {
@@ -179,46 +166,8 @@ const Document: React.FC = () => {
         </div>
       </div>
 
-      {isModalOpen && (
-        <Modal onClose={handleModalClose}>
-          {!isDenialConfirmed ? (
-            // Первый этап модального окна
-            <div className={styles.modalContent}>
-              <h3 className={styles.modalTitle}>Deny application</h3>
-              <p className={styles.modalText}>
-                You exactly sure, you want to cancel this application?
-              </p>
-              <div className={styles.modalButtons}>
-                <button
-                  className={styles.modalDenyButton}
-                  onClick={handleDenyConfirm}
-                >
-                  Deny
-                </button>
-                <button
-                  className={styles.modalCancelButton}
-                  onClick={handleModalClose}
-                >
-                  Cancel
-                </button>
-              </div>
-            </div>
-          ) : (
-            // Второй этап модального окна
-            <div className={styles.modalContent}>
-              <h3 className={styles.modalTitle}>Deny application</h3>
-              <p className={styles.modalText}>
-                Your application has been deny!
-              </p>
-              <button
-                className={styles.modalGoHomeButton}
-                onClick={handleGoHome}
-              >
-                Go home
-              </button>
-            </div>
-          )}
-        </Modal>
+      {isDenyModalOpen && (
+        <DenyApplicationModal onClose={handleCloseDenyModal} />
       )}
     </section>
   );
