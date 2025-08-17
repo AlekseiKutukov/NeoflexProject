@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import type { FormikErrors, FormikHelpers } from "formik";
 import { useParams } from "react-router-dom";
+import { useProgressStore } from "../../store/progressStore";
 import StepOf from "../StepOf/StepOf";
 import Spinner from "../UI/Spinner/Spinner";
 import styles from "./ScoringPage.module.css";
@@ -37,6 +38,7 @@ interface ScoringFormProps {
 const ScoringPage: React.FC<ScoringFormProps> = ({ onSuccess }) => {
   const { applicationId } = useParams<{ applicationId: string }>();
   const [isLoading, setIsLoading] = useState(false);
+  const setCurrentStep = useProgressStore((state) => state.setCurrentStep);
 
   const localStorageData = localStorage.getItem("loan-application-state");
   let accountIdFromLocalStorage = "";
@@ -203,7 +205,8 @@ const ScoringPage: React.FC<ScoringFormProps> = ({ onSuccess }) => {
         throw new Error(`Ошибка скоринга: ${res.status} — ${errText}`);
       }
 
-      console.log("payload ", payload);
+      // console.log("payload ", payload);
+      setCurrentStep(2);
       onSuccess();
     } catch (error) {
       console.error("Scoring form submission error:", error);

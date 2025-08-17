@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useProgressStore } from "../../store/progressStore";
+import { checkRouteAccess } from "../../utils/routeGuard";
 import styles from "./Sign.module.css";
 import AfterStep from "../../components/AfterStep/AfterStep";
 import Checkbox from "../../components/Checkbox/Checkbox";
@@ -17,6 +19,16 @@ const Sign: React.FC = () => {
   const [isAgreed, setIsAgreed] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const setCurrentStep = useProgressStore((state) => state.setCurrentStep);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const desiredStep = 4;
+    const isAccessGranted = checkRouteAccess(desiredStep, navigate);
+    if (isAccessGranted) {
+      setCurrentStep(desiredStep);
+    }
+  }, [navigate, setCurrentStep]);
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsAgreed(e.target.checked);
@@ -32,6 +44,7 @@ const Sign: React.FC = () => {
       if (!res.ok) {
         throw new Error("Failed to sign documents.");
       }
+      setCurrentStep(4);
       setIsSubmitted(true);
     } catch (err) {
       setError("Failed to sign documents.");

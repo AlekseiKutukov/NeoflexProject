@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import styles from "./Document.module.css";
+import { useProgressStore } from "../../store/progressStore";
+import { checkRouteAccess } from "../../utils/routeGuard";
 import Table from "../../components/Table/Table";
 import Checkbox from "../../components/Checkbox/Checkbox";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import AfterStep from "../../components/AfterStep/AfterStep";
 import StepOf from "../../components/StepOf/StepOf";
 import DenyApplicationModal from "../../components/DenyApplicationModal/DenyApplicationModal";
-
+import styles from "./Document.module.css";
 interface Payment {
   number: number;
   date: string;
@@ -52,6 +53,16 @@ const Document: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isDenyModalOpen, setIsDenyModalOpen] = useState(false);
+  const setCurrentStep = useProgressStore((state) => state.setCurrentStep);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const desiredStep = 4;
+    const isAccessGranted = checkRouteAccess(desiredStep, navigate);
+    if (isAccessGranted) {
+      setCurrentStep(desiredStep);
+    }
+  }, [navigate, setCurrentStep]);
 
   useEffect(() => {
     const fetchPaymentSchedule = async () => {
@@ -98,6 +109,7 @@ const Document: React.FC = () => {
         throw new Error("Failed to send agreement.");
       }
       setIsSubmitted(true);
+      setCurrentStep(3);
     } catch (err) {
       setError("Failed to send consent.");
       console.error(err);

@@ -1,5 +1,7 @@
-import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useProgressStore } from "../../store/progressStore";
+import { checkRouteAccess } from "../../utils/routeGuard";
 import Congratulations from "../../components/Congratulations/Congratulations";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import styles from "./Code.module.css";
@@ -15,6 +17,16 @@ const Code: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const setCurrentStep = useProgressStore((state) => state.setCurrentStep);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const desiredStep = 5;
+    const isAccessGranted = checkRouteAccess(desiredStep, navigate);
+    if (isAccessGranted) {
+      setCurrentStep(desiredStep);
+    }
+  }, [navigate, setCurrentStep]);
 
   const handleSendCode = async (fullCode: string) => {
     setIsLoading(true);
@@ -31,6 +43,7 @@ const Code: React.FC = () => {
       if (!res.ok) {
         throw new Error("Invalid confirmation code.");
       }
+      setCurrentStep(5);
       setIsSubmitted(true);
     } catch (err) {
       setError("Invalid confirmation code");
