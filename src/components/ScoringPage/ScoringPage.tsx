@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import type { FormikErrors, FormikHelpers } from "formik";
 import { useParams } from "react-router-dom";
+import StepOf from "../StepOf/StepOf";
 import Spinner from "../UI/Spinner/Spinner";
 import styles from "./ScoringPage.module.css";
 
@@ -223,12 +224,8 @@ const ScoringPage: React.FC<ScoringFormProps> = ({ onSuccess }) => {
       >
         {() => (
           <Form className={styles.scoringForm}>
-            <div className={styles.scoringForm__header}>
-              <h2 className={styles.scoringForm__title}>
-                Continuation of the application
-              </h2>
-              <div className={styles.scoringForm__info}>Step 2 of 5</div>
-            </div>
+            <StepOf title={"Continuation of the application"} number={2} />
+
             <div className={styles.scoringForm__grid}>
               <div className={styles.scoringForm__gender}>
                 <div className={styles.fieldGroup}>

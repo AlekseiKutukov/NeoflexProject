@@ -7,23 +7,6 @@
   margin-top: 24px;
 }
 
-.document__header {
-  display: flex;
-  align-items: baseline;
-  margin-bottom: 76px;
-}
-
-.document__title {
-  font-size: 30px;
-  font-weight: 700;
-  margin-right: 80px;
-}
-
-.document__step {
-  font-size: 16px;
-  font-weight: 500;
-}
-
 .document__footer {
   display: flex;
   justify-content: space-between;

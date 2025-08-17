@@ -5,6 +5,7 @@ import Table from "../../components/Table/Table";
 import Checkbox from "../../components/Checkbox/Checkbox";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import AfterStep from "../../components/AfterStep/AfterStep";
+import StepOf from "../../components/StepOf/StepOf";
 import DenyApplicationModal from "../../components/DenyApplicationModal/DenyApplicationModal";
 
 interface Payment {
@@ -138,10 +139,7 @@ const Document: React.FC = () => {
 
   return (
     <section className={styles.document__container}>
-      <div className={styles.document__header}>
-        <h2 className={styles.document__title}>Payment Schedule</h2>
-        <div className={styles.document__step}>Step 3 of 5</div>
-      </div>
+      <StepOf title={"Payment Schedule"} number={3} />
       <Table data={payments} />
       <div className={styles.document__footer}>
         <button
