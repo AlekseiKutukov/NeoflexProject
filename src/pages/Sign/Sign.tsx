@@ -9,10 +9,7 @@ import StepOf from "../../components/StepOf/StepOf";
 import DocumentIcon from "../../assets/icons/File_dock.svg";
 import pdfFile from "../../assets/pdf/credit-card-offer.pdf";
 
-const API_BASE =
-  import.meta.env.MODE === "development"
-    ? ""
-    : "https://alekseikutukov.github.io/NeoflexProject/";
+const API_BASE = import.meta.env.VITE_API_BASE;
 
 const Sign: React.FC = () => {
   const { applicationId } = useParams<{ applicationId: string }>();

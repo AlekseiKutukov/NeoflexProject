@@ -6,10 +6,7 @@ import Congratulations from "../../components/Congratulations/Congratulations";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import styles from "./Code.module.css";
 
-const API_BASE =
-  import.meta.env.MODE === "development"
-    ? ""
-    : "https://alekseikutukov.github.io/NeoflexProject/";
+const API_BASE = import.meta.env.VITE_API_BASE;
 
 const Code: React.FC = () => {
   const { applicationId } = useParams<{ applicationId: string }>();

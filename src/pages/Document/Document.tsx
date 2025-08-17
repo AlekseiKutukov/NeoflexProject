@@ -40,10 +40,7 @@ interface ApplicationData {
   statusHistory: object[];
 }
 
-const API_BASE =
-  import.meta.env.MODE === "development"
-    ? ""
-    : "https://alekseikutukov.github.io/NeoflexProject/";
+const API_BASE = import.meta.env.VITE_API_BASE;
 
 const Document: React.FC = () => {
   const { applicationId } = useParams<{ applicationId: string }>();

@@ -7,12 +7,7 @@ import StepOf from "../StepOf/StepOf";
 import Spinner from "../UI/Spinner/Spinner";
 import styles from "./ScoringPage.module.css";
 
-//решение cors
-const API_BASE =
-  import.meta.env.MODE === "development"
-    ? "" // пусто, пойдёт через прокси
-    : "https://alekseikutukov.github.io/NeoflexProject/"; // адрес бэка для GitHub Pages
-
+const API_BASE = import.meta.env.VITE_API_BASE;
 interface EmploymentValues {
   employmentStatus: string;
   employerINN: string;
