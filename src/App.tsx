@@ -7,6 +7,7 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import Loan from "./pages/Loan/Loan";
 import Document from "./pages/Document/Document";
 import Sign from "./pages/Sign/Sign";
+import Code from "./pages/Code/Code";
 import "./styles/base.css";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
                 path="loan/:applicationId/document/sign"
                 element={<Sign />}
               />
+              <Route path="loan/:applicationId/code" element={<Code />} />
               {/* NotFound должен быть поcледним */}
               <Route path="*" element={<NotFoundPage />} />
             </Routes>

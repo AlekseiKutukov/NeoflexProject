@@ -51,6 +51,8 @@ Module 4
 7. Добавлена страница loan/{applicationId}/document/sign
 8. Добавлена страница loan/{applicationId}/code
 
+вынеси API_BASE в env файл
+
 - Основныe breakpoint:
   @media (max-width: 1330px)
   @media (max-width: 920px)
