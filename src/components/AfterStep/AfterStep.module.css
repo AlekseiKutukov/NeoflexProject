@@ -1,0 +1,14 @@
+.title {
+  color: #1c1c1e;
+  font-weight: 700;
+  font-size: 30px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.text {
+  color: #4f5665;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+}

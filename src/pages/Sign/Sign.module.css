@@ -1,0 +1,64 @@
+.signDocument__container {
+  margin-top: 104px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.document__agreementContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.document__sendButton {
+  background-color: #003cff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.document__sendButton:disabled {
+  background-color: #c0c0c0;
+  cursor: not-allowed;
+}
+
+.signDocument__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.signDocument__document {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.signDocument__document img {
+  width: 60px;
+  height: 60px;
+}
+
+.signDocument__link {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.signDocument__text {
+  font-size: 20px;
+  font-weight: 500;
+  color: #4f5665;
+  margin-bottom: 24px;
+}

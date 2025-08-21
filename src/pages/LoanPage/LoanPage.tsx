@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import CreditCard from "./CreditCard/CreditCard";
 import AboutCardTab from "../../components/LoanPageTabs/AboutCardTab/AboutCardTab";
 import CashbackTab from "../../components/LoanPageTabs/CashbackTab/CashbackTab";
@@ -6,6 +6,8 @@ import FaqTab from "../../components/LoanPageTabs/FaqTab/FaqTab";
 import RatesTab from "../../components/LoanPageTabs/RatesTab/RatesTab";
 import CustomizeCardForm from "../../components/Form/CustomizeCardForm/CustomizeCardForm";
 import HowGetCard from "../../components/HowGetCard/HowGetCard";
+import LoanOffers from "../../components/LoanOffers/LoanOffers";
+import AfterStep from "../../components/AfterStep/AfterStep";
 import styles from "./LoanPage.module.css";
 
 const LoanPage = () => {
@@ -13,12 +15,30 @@ const LoanPage = () => {
   type TabName = "aboutCard" | "rates" | "cashback" | "faq";
 
   const [activeTab, setActiveTab] = useState<TabName>("aboutCard"); // Состояние для активной вкладки
+  const [showOffers, setShowOffers] = useState(false);
+  const [showDecision, setShowDecision] = useState(false);
 
   const handleTabClick = (tab: TabName) => {
     setActiveTab(tab);
   };
 
+  const handleFormSuccess = () => {
+    setShowOffers(true);
+  };
+
+  const handleOfferSelect = () => {
+    setShowOffers(false);
+    setShowDecision(true);
+  };
+
   const applicationFormRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const storedState = localStorage.getItem("loan-application-state");
+    if (storedState) {
+      setShowOffers(true);
+    }
+  }, []);
 
   return (
     <div className={styles.loanPage}>
@@ -70,7 +90,24 @@ const LoanPage = () => {
         </div>
       </section>
       <HowGetCard />
-      <CustomizeCardForm ref={applicationFormRef} />
+
+      {showOffers && !showDecision ? (
+        <LoanOffers onSuccess={handleOfferSelect} ref={applicationFormRef} />
+      ) : showDecision ? (
+        <div className={styles.afterStep}>
+          <AfterStep
+            title={"The preliminary decision has been sent to your email."}
+            text={
+              "In the letter you can get acquainted with the preliminary decision on the credit card."
+            }
+          />
+        </div>
+      ) : (
+        <CustomizeCardForm
+          onSuccess={handleFormSuccess}
+          ref={applicationFormRef}
+        />
+      )}
     </div>
   );
 };

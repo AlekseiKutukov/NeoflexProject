@@ -1,0 +1,43 @@
+.congratulations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.congratulations__image {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 24px;
+}
+
+.congratulations__title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #1c1c1e;
+  margin-bottom: 16px;
+}
+
+.congratulations__text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #4f5665;
+}
+
+.congratulations__button {
+  padding: 12px 24px;
+  background-color: #003cff;
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.congratulations__button:hover {
+  background-color: #0056b3;
+}

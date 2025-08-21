@@ -1,7 +1,7 @@
 # React + TypeScript + Vite
 
 ЗАПУСК DOCKER:
-cd project/neoflex/project
+cd NeoFlex/project/Backend
 docker compose up --build
 docker ps проверка запуска
 http://localhost:8080/swagger-ui/index.html
@@ -13,6 +13,8 @@ TS
 ESLint
 Git-flow
 formik
+Zustand
+zustand/middleware синхронизирует состояние с хранилищем
 
 - ЗАПУСК:
   npm run dev
@@ -26,7 +28,6 @@ formik
 
 - Добавь после
   TanStack Query
--
 
 Module 3
 
@@ -35,18 +36,22 @@ Module 3
 3. Cозданы компоненты: Tabs, Divider(полоса разделитель), Tooltip подсказки в credit card, Loader(Спиннер), Accordion сворачивание faq,
 4. Для работы с формами использована библиотека Formik.
 
--
-- -Основныe breakpoint
+Module 4
 
-@media (max-width: 1330px) {
-}
+1. Установлен Zustand, zustand/middleware
+   1.1. Выводится 4 кредитных предложения, сохранены в localStore и синхронизированы с store,После выбора одного из предложений идёт отправка данных на application/apply
+2. Дополнительные требования
+   -не теряется текущий шаг заявки
+   -пользователь может проходить этапы только по своей заявке (applicationId)
+   -пользователь не может переходить на следующий этап, пока не пройдёт текущий
+3. Добавлена страница loan/{applicationId} с формой Scoring
+4. Добавлена страница loan/{applicationId}/document с таблицей
+5. Реализована сортировка столбцов таблицы
+6. Реализована возможность отказаться от заявки
+7. Добавлена страница loan/{applicationId}/document/sign
+8. Добавлена страница loan/{applicationId}/code
 
-/_ ----- Tablet ----- _/
-
-@media (max-width: 920px) {
-}
-
-/_ ----- Mobile ----- _/
-
-@media (max-width: 500px) {
-}
+- Основныe breakpoint:
+  @media (max-width: 1330px)
+  @media (max-width: 920px)
+  @media (max-width: 500px)
