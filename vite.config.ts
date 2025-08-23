@@ -1,4 +1,5 @@
-import { defineConfig } from "vite";
+// <reference types="vitest" /> ///
+import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 
 // https://alekseikutukov.github.io/NeoflexProject/
@@ -23,5 +24,10 @@ export default defineConfig({
         secure: false,
       },
     },
+  },
+  test: {
+    globals: true, // чтобы можно было использовать describe/it без импорта
+    environment: "jsdom", // эмуляция браузера
+    setupFiles: "./src/setupTests.ts", // файл для конфигурации
   },
 });

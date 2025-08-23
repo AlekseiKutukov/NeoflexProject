@@ -16,8 +16,17 @@ formik
 Zustand
 zustand/middleware синхронизирует состояние с хранилищем
 
+Тестирование:
+Vitest Тест-раннер оптизированный для вайт
+jsdom имитирует браузер
+@testing-library/react библиотека для тестирования
+@testing-library/user-event имитация пользовательских действий (клики, ввод текста).
+@testing-library/jest-dom расширяет матчеры для удобных проверок DOM
+@types/testing-library_jest-dom типизация для ts
+
 - ЗАПУСК:
   npm run dev
+  npm test
   docker compose up --build
 
 - СБОРКА И ОТПРАВКА НА GH PAGES
@@ -50,6 +59,10 @@ Module 4
 6. Реализована возможность отказаться от заявки
 7. Добавлена страница loan/{applicationId}/document/sign
 8. Добавлена страница loan/{applicationId}/code
+
+Module 5
+
+Покрытие кода тестами, проверка навыков тестрования приложения с помощью testing-library-react
 
 - Основныe breakpoint:
   @media (max-width: 1330px)
