@@ -4,10 +4,10 @@ import styles from "./AfterStep.module.css";
 
 describe("компонент AfterStep", () => {
   it("Правильно отображает title и text", () => {
-    render(<AfterStep title="Тестовый заголовок" text="Тестовый текст" />); //монтирует компонет в виртуальный dom
-
-    expect(screen.getByText("Тестовый заголовок")).toBeInTheDocument();
+    //монтирует компонет в виртуальный dom
+    render(<AfterStep title="Тестовый заголовок" text="Тестовый текст" />);
     //ПроверкаСуществуетЛи?(НайтиЭлемент.getByText("Test Title"))
+    expect(screen.getByText("Тестовый заголовок")).toBeInTheDocument();
     expect(screen.getByText("Тестовый текст")).toBeInTheDocument();
   });
 
