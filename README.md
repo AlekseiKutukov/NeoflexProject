@@ -27,6 +27,8 @@ jsdom имитирует браузер
 - ЗАПУСК:
   npm run dev
   npm test
+  npm run test:run src/components/ExchangeRate/ExchangeRate.test.tsx
+
   docker compose up --build
 
 - СБОРКА И ОТПРАВКА НА GH PAGES

@@ -2,6 +2,8 @@ import { render, screen } from "@testing-library/react";
 import AfterStep from "./AfterStep";
 import styles from "./AfterStep.module.css";
 
+//fireEvent имитирует действия пользователя над элементами DOM. (нажимает кнопки, вводит текст, выбирает опции)
+
 describe("компонент AfterStep", () => {
   it("Правильно отображает title и text", () => {
     //монтирует компонет в виртуальный dom
