@@ -27,7 +27,8 @@ jsdom имитирует браузер
 - ЗАПУСК:
   npm run dev
   npm test
-  npm run test:run src/components/ExchangeRate/ExchangeRate.test.tsx
+  npm run test:run src/components/Form/CustomizeCardForm/CustomizeCardForm.test.tsx
+  npm test src/components/Form/CustomizeCardForm/CustomizeCardForm.test.tsx
 
   docker compose up --build
 

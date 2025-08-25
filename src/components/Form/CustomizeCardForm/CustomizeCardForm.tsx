@@ -444,6 +444,7 @@ const CustomizeCardForm = forwardRef(
                     name="birthdate"
                     type="date"
                     required
+                    placeholder="дд.мм.гг"
                     value={values.birthdate}
                     hasError={!!(touched.birthdate && errors.birthdate)}
                     isTouched={!!touched.birthdate}

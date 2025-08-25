@@ -1,25 +1,43 @@
-import { screen, fireEvent } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
+import { render, screen, fireEvent } from "@testing-library/react";
+import { describe, it, expect, vi, beforeEach } from "vitest";
+import DenyApplicationModal from "./DenyApplicationModal";
+
+// Мокаем react-router-dom, чтобы useNavigate не ломал тесты
+vi.mock("react-router-dom", () => ({
+  useNavigate: () => vi.fn(),
+}));
 
 describe("DenyApplicationModal", () => {
   const onClose = vi.fn();
 
+  beforeEach(() => {
+    onClose.mockClear();
+  });
+
   it("Отображает первый экран и обрабатывает отмену", () => {
+    render(<DenyApplicationModal onClose={onClose} />);
+
     // Проверяем, что первый экран отображается
-    expect(screen.getByText(/you exactly sure/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /you exactly sure, you want to cancel this application\?/i
+      )
+    ).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /deny/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /cancel/i })).toBeInTheDocument();
 
-    // Проверяем, что клик по "Cancel" вызывает onClose
+    // Клик по Cancel вызывает onClose
     fireEvent.click(screen.getByRole("button", { name: /cancel/i }));
     expect(onClose).toHaveBeenCalled();
   });
 
   it("Переходит на второй экран и закрывает при клике на 'Go home'", () => {
-    // Переходим на второй экран
+    render(<DenyApplicationModal onClose={onClose} />);
+
+    // Кликаем Deny
     fireEvent.click(screen.getByRole("button", { name: /deny/i }));
 
-    // Проверяем, что второй экран отображается
+    // Проверяем, что второй экран отобразился
     expect(
       screen.getByText(/your application has been deny!/i)
     ).toBeInTheDocument();
@@ -27,7 +45,7 @@ describe("DenyApplicationModal", () => {
       screen.getByRole("button", { name: /go home/i })
     ).toBeInTheDocument();
 
-    // Проверяем, что клик по "Go home" вызывает onClose
+    // Кликаем Go home, должен вызваться onClose
     fireEvent.click(screen.getByRole("button", { name: /go home/i }));
     expect(onClose).toHaveBeenCalled();
   });
