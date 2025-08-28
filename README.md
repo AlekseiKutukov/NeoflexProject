@@ -1,6 +1,6 @@
 # Прототип небольшого банка
 
-[Открыть демо](https://alekseikutukov.github.io/NeoflexProject/)
+<a href="https://alekseikutukov.github.io/NeoflexProject/" target="_blank">Открыть демо</a>
 
 ## Использовано:
 
