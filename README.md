@@ -1,5 +1,7 @@
 # Прототип небольшого банка
 
+[![Открыть демо](https://img.shields.io/badge/Open-Demo-blue?style=for-the-badge&logo=github)](https://alekseikutukov.github.io/NeoflexProject/)
+
 ## Использовано:
 
 ![Vite](https://img.shields.io/badge/Vite-FFD62E?style=flat-square&logo=vite)  
@@ -30,7 +32,7 @@ Zustand
 
 ## Что было сделано
 
-Module 1
+Module 1 - реализация главной страницы
 
 1. Создано React-приложение с использованием Vite и TypeScript.
 2. Подключены и настроены Prettier и ESLint для проверки и форматирования кода.
@@ -39,7 +41,7 @@ Module 1
 5. Сверстана главная страница.
 6. Реализована адаптивность под мобильные устройства.
 
-Module 2
+Module 2 - работа с базовыми концепциями языка js
 
 1. Подключен внешний API ([exchangerate-api.com](https://app.exchangerate-api.com/dashboard)) для получения актуального курса валют.
 2. Подключен внешний API новостей ([NewsAPI](https://newsapi.org/)) ( на GH Pages не работает, ограничение API ).
@@ -47,14 +49,14 @@ Module 2
 4. Реализован горизонтальный слайдер для новостей.
 5. Кнопки пролистывания блокируются при достижении первой или последней карточки.
 
-Module 3
+Module 3 - реализация страницы loan
 
 1. Реализована отправка email, для подписки на новости (значение хранится в LocalStorage).
 1. При клике на кнопку "Apply for card", происходит плавное перемещение к форме.
 1. Cозданы компоненты: Tabs, Divider(полоса разделитель), Tooltip подсказки в credit card, Loader(Спиннер), Accordion сворачивание faq.
 1. Для работы с формами использована библиотека Formik.
 
-Module 4
+Module 4 - добавление маршрутизации и бизнес логики
 
 1. Установлен Zustand, zustand/middleware.
 2. Выводится 4 кредитных предложения, сохранены в localStore и синхронизированы с store, после выбора одного из предложений идёт отправка данных на application/apply.
@@ -69,7 +71,7 @@ Module 4
 8. Добавлена страница loan/{applicationId}/document/sign.
 9. Добавлена страница loan/{applicationId}/code.
 
-Module 5
+Module 5 - тестирование
 
 1. Покрытие кода тестами, проверка навыков тестрования приложения с помощью @testing-library/react
 
