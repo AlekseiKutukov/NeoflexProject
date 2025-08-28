@@ -1,35 +1,31 @@
-# React + TypeScript + Vite
+# Прототип небольшого банка
 
 ## Использовано:
 
-![Vite](https://img.shields.io/badge/Vite-FFD62E?style=flat-square&logo=vite)
-![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white)
-![Vitest](https://img.shields.io/badge/Vitest-68E0C1?style=flat-square&logo=vitest)
-
-Vite  
-React  
-TS  
-ESLint  
+![Vite](https://img.shields.io/badge/Vite-FFD62E?style=flat-square&logo=vite)  
+![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=white)  
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)  
+![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white)  
+![Vitest](https://img.shields.io/badge/Vitest-68E0C1?style=flat-square&logo=vitest)  
 Git-flow  
 formik  
-Zustand  
-Vitest
+Zustand
 
 ## Запуск:
 
 1. Клонировать репозиторий:  
    git clone git@github.com:AlekseiKutukov/NeoflexProject.git
+
+2. Перейти в папку:  
    cd NeoflexProject
 
-2. Установить зависимости:  
+3. Установить зависимости:  
    npm install
 
-3. Запустить dev-сервер:  
+4. Запустить dev-сервер:  
    npm run dev
 
-4. Открыть в браузере:  
+5. Открыть в браузере:  
    http://localhost:5173/NeoflexProject/
 
 ## Что было сделано
@@ -45,8 +41,8 @@ Module 1
 
 Module 2
 
-1. Подключен внешний API для получения актуального курса валют. [exchangerate-api.com](https://app.exchangerate-api.com/dashboard)
-2. Подключен внешний API новостей ( на GH Pages не работает, ограничение API ). [NewsAPI](https://newsapi.org/)
+1. Подключен внешний API ([exchangerate-api.com](https://app.exchangerate-api.com/dashboard)) для получения актуального курса валют.
+2. Подключен внешний API новостей ([NewsAPI](https://newsapi.org/)) ( на GH Pages не работает, ограничение API ).
 3. Результаты фильтруются: исключая битые изображения и HTML-разметка в описаниях.
 4. Реализован горизонтальный слайдер для новостей.
 5. Кнопки пролистывания блокируются при достижении первой или последней карточки.
