@@ -80,7 +80,7 @@ const Code: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className={styles.spinnerContainer}>
+      <div className={styles.spinnerContainer} data-testid="spinner-container">
         <Spinner />
       </div>
     );

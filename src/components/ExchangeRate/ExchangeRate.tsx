@@ -1,30 +1,24 @@
-import { useEffect, useState, useCallback } from 'react';
-import axios from 'axios';
-import bankImg from './../../assets/images/Group.svg';
-import styles from './ExchangeRate.module.css';
+import { useEffect, useState, useCallback } from "react";
+import axios from "axios";
+import bankImg from "./../../assets/images/Group.svg";
+import styles from "./ExchangeRate.module.css";
 
 const CALL_INTERVAL: number = 15 * 60 * 1000; // 15 минут
-const API_KEY: string = '1ce15a5127621865f9501bf5';
+const API_KEY: string = "1ce15a5127621865f9501bf5";
 const EXCHANGE_RATE_API_URL = (baseCurrency: string) =>
   `https://v6.exchangerate-api.com/v6/${API_KEY}/latest/${baseCurrency}`;
 
 const CURRENCY_IDS_TO_DISPLAY: Set<string> = new Set([
-  'USD',
-  'EUR',
-  'KZT',
-  'UAH',
-  'HUF',
-  'GBP',
+  "USD",
+  "EUR",
+  "KZT",
+  "UAH",
+  "HUF",
+  "GBP",
 ]);
 
 interface ExchangeRateApiResponse {
-  // result: string;
-  // documentation: string;
-  // terms_of_use: string;
-  // time_last_update_unix: number;
   time_last_update_utc: string;
-  // time_next_update_unix: number;
-  // time_next_update_utc: string;
   base_code: string;
   conversion_rates: {
     [key: string]: number; // код валюты - курс
@@ -46,7 +40,7 @@ const ExchangeRate = () => {
     try {
       setError(null); // Сбрасываем ошибку перед новым запросом
       const response = await axios.get<ExchangeRateApiResponse>(
-        EXCHANGE_RATE_API_URL('RUB')
+        EXCHANGE_RATE_API_URL("RUB")
       );
 
       setCurrentRates(response.data.conversion_rates);
@@ -55,15 +49,15 @@ const ExchangeRate = () => {
       const timestampString = response.data.time_last_update_utc;
       const date = new Date(timestampString);
 
-      const day = String(date.getDate()).padStart(2, '0');
-      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, "0");
+      const month = String(date.getMonth() + 1).padStart(2, "0");
       const year = date.getFullYear();
-      const hours = String(date.getHours()).padStart(2, '0');
-      const minutes = String(date.getMinutes()).padStart(2, '0');
+      const hours = String(date.getHours()).padStart(2, "0");
+      const minutes = String(date.getMinutes()).padStart(2, "0");
 
       setLastUpdate(`${day}.${month}.${year} ${hours}:${minutes}`);
     } catch (err: unknown) {
-      console.error('Ошибка при получении данных:', error);
+      console.error("Ошибка при получении данных:", error);
       setCurrentRates(null); // Сбрасываем курсы при ошибке
     }
   }, []);
@@ -106,9 +100,7 @@ const ExchangeRate = () => {
                     </span>
                   </>
                 ) : (
-                  <span className={styles.converter__money}>
-                    {code}: ...
-                  </span>
+                  <span className={styles.converter__money}>{code}: ...</span>
                 )}
               </div>
             );
@@ -119,15 +111,16 @@ const ExchangeRate = () => {
           className={styles.converter__toggleText}
           onClick={toggleAllCoursesVisibility}
         >
-          {isAllCoursesVisible ? 'Hide' : 'All courses'}
+          {isAllCoursesVisible ? "Hide" : "All courses"}
         </div>
 
         <div
           id="all-courses-list"
+          data-testid="all-courses-list"
           className={`${styles.converter__list} ${isAllCoursesVisible ? styles.visible : styles.hidden}`}
         >
           {currentRates ? (
-            // ✨ Object.keys(currentRates) для получения всех доступных валют
+            // Object.keys(currentRates) для получения всех доступных валют
             Object.keys(currentRates)
               .filter((code) => !CURRENCY_IDS_TO_DISPLAY.has(code)) // Фильтруем, чтобы не показывать уже отображенные
               .map((code) => {
@@ -151,11 +144,11 @@ const ExchangeRate = () => {
 
       <div className={styles.converter__columnRight}>
         <div className={styles.converter__data}>
-          Update every 15 minutes, MSC{' '}
+          Update every 15 minutes, MSC{" "}
           {lastUpdate ? (
             <span className={styles.converter__date}>{lastUpdate}</span>
           ) : (
-            'Download data...'
+            "Download data..."
           )}
         </div>
         <div className={styles.converter__image}>
